@@ -13,7 +13,6 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
-    \Sirix\InertiaPsr15\ConfigProvider::class,
     \Sirix\TwigViteExtension\ConfigProvider::class,
     \Sirix\Config\ConfigProvider::class,
     \Sirix\Mezzio\Router\RadixRouter\ConfigProvider::class,

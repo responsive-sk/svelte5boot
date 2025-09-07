@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10612ede8b66b45cf75c79d2fb7bed98",
+    "content-hash": "8d16b8c91bfcbf7701cb45da62425ec3",
     "packages": [
         {
             "name": "brick/varexporter",
@@ -949,16 +949,16 @@
         },
         {
             "name": "mezzio/mezzio-helpers",
-            "version": "5.18.0",
+            "version": "5.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mezzio/mezzio-helpers.git",
-                "reference": "8d76502e4d71aff178f2084eadd71d12fe737d3c"
+                "reference": "9adec72d8437e2c5058d28f69ce569b7a666b958"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mezzio/mezzio-helpers/zipball/8d76502e4d71aff178f2084eadd71d12fe737d3c",
-                "reference": "8d76502e4d71aff178f2084eadd71d12fe737d3c",
+                "url": "https://api.github.com/repos/mezzio/mezzio-helpers/zipball/9adec72d8437e2c5058d28f69ce569b7a666b958",
+                "reference": "9adec72d8437e2c5058d28f69ce569b7a666b958",
                 "shasum": ""
             },
             "require": {
@@ -976,7 +976,7 @@
             },
             "require-dev": {
                 "ext-json": "*",
-                "laminas/laminas-coding-standard": "~3.0.1",
+                "laminas/laminas-coding-standard": "~3.1.0",
                 "laminas/laminas-diactoros": "^3.5",
                 "phpunit/phpunit": "^10.5.45",
                 "psalm/plugin-phpunit": "^0.19.5",
@@ -1024,7 +1024,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2025-04-27T08:59:18+00:00"
+            "time": "2025-09-04T11:08:16+00:00"
         },
         {
             "name": "mezzio/mezzio-router",
@@ -1623,64 +1623,6 @@
                 "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
             },
             "time": "2021-10-29T13:26:27+00:00"
-        },
-        {
-            "name": "sirix/inertia-psr15",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sirix777/inertia-psr15.git",
-                "reference": "98566d13da36a6e8b9799683d067a66a0c5e0fa4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sirix777/inertia-psr15/zipball/98566d13da36a6e8b9799683d067a66a0c5e0fa4",
-                "reference": "98566d13da36a6e8b9799683d067a66a0c5e0fa4",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
-                "psr/http-server-middleware": "^1.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "2.46",
-                "laminas/laminas-diactoros": "^3.6.0",
-                "localheinz/diff": "^1.0",
-                "mezzio/mezzio-template": "^2.11",
-                "phpunit/phpunit": "^10.5 || ^11.5",
-                "psr/container": "^1.0 || ^2.0",
-                "twig/twig": "^3.21"
-            },
-            "type": "library",
-            "extra": {
-                "laminas": {
-                    "config-provider": "Sirix\\InertiaPsr15\\ConfigProvider"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sirix\\InertiaPsr15\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Cherif BOUCHELAGHEM",
-                    "email": "cherif.bouchelaghem@gmail.com"
-                },
-                {
-                    "name": "Sirix",
-                    "email": "sirix@inbox.lv"
-                }
-            ],
-            "description": "InertiaJS server-side adapter for PSR-7 and PSR-15 applications",
-            "support": {
-                "source": "https://github.com/sirix777/inertia-psr15/tree/1.1.0"
-            },
-            "time": "2025-08-31T11:03:08+00:00"
         },
         {
             "name": "sirix/mezzio-radixrouter",
@@ -5452,12 +5394,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "4fbe7e09e34b1554269750e19674f1f6fd84a4ae"
+                "reference": "dc5c4ede5c331ae21fb68947ff89672df9b7cc7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4fbe7e09e34b1554269750e19674f1f6fd84a4ae",
-                "reference": "4fbe7e09e34b1554269750e19674f1f6fd84a4ae",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/dc5c4ede5c331ae21fb68947ff89672df9b7cc7d",
+                "reference": "dc5c4ede5c331ae21fb68947ff89672df9b7cc7d",
                 "shasum": ""
             },
             "conflict": {
@@ -5881,7 +5823,7 @@
                 "marshmallow/nova-tiptap": "<5.7",
                 "matomo/matomo": "<1.11",
                 "matyhtf/framework": "<3.0.6",
-                "mautic/core": "<5.2.6|>=6.0.0.0-alpha,<6.0.2",
+                "mautic/core": "<5.2.8|>=6.0.0.0-alpha,<6.0.5",
                 "mautic/core-lib": ">=1.0.0.0-beta,<4.4.13|>=5.0.0.0-alpha,<5.1.1",
                 "maximebf/debugbar": "<1.19",
                 "mdanter/ecc": "<2",
@@ -6035,7 +5977,7 @@
                 "prestashop/blockwishlist": ">=2,<2.1.1",
                 "prestashop/contactform": ">=1.0.1,<4.3",
                 "prestashop/gamification": "<2.3.2",
-                "prestashop/prestashop": "<8.1.6",
+                "prestashop/prestashop": "<8.2.3",
                 "prestashop/productcomments": "<5.0.2",
                 "prestashop/ps_contactinfo": "<=3.3.2",
                 "prestashop/ps_emailsubscription": "<2.6.1",
@@ -6408,7 +6350,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-09-02T17:05:04+00:00"
+            "time": "2025-09-04T20:05:35+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -6580,16 +6522,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "5.0.3",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "a18251eb0b7a2dcd2f7aa3d6078b18545ef0558e"
+                "reference": "e8e53097718d2b53cfb2aa859b06a41abf58c62e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/a18251eb0b7a2dcd2f7aa3d6078b18545ef0558e",
-                "reference": "a18251eb0b7a2dcd2f7aa3d6078b18545ef0558e",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/e8e53097718d2b53cfb2aa859b06a41abf58c62e",
+                "reference": "e8e53097718d2b53cfb2aa859b06a41abf58c62e",
                 "shasum": ""
             },
             "require": {
@@ -6645,15 +6587,27 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/comparator/issues",
                 "security": "https://github.com/sebastianbergmann/comparator/security/policy",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/5.0.3"
+                "source": "https://github.com/sebastianbergmann/comparator/tree/5.0.4"
             },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
                     "type": "github"
+                },
+                {
+                    "url": "https://liberapay.com/sebastianbergmann",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
+                    "type": "thanks_dev"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/sebastian/comparator",
+                    "type": "tidelift"
                 }
             ],
-            "time": "2024-10-18T14:56:07+00:00"
+            "time": "2025-09-07T05:25:07+00:00"
         },
         {
             "name": "sebastian/complexity",
@@ -7470,16 +7424,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.13.2",
+            "version": "3.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "5b5e3821314f947dd040c70f7992a64eac89025c"
+                "reference": "ad545ea9c1b7d270ce0fc9cbfb884161cd706119"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/5b5e3821314f947dd040c70f7992a64eac89025c",
-                "reference": "5b5e3821314f947dd040c70f7992a64eac89025c",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ad545ea9c1b7d270ce0fc9cbfb884161cd706119",
+                "reference": "ad545ea9c1b7d270ce0fc9cbfb884161cd706119",
                 "shasum": ""
             },
             "require": {
@@ -7550,7 +7504,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-06-17T22:17:01+00:00"
+            "time": "2025-09-05T05:47:09+00:00"
         },
         {
             "name": "symfony/console",

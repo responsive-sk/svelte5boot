@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Sirix\InertiaPsr15\Twig\InertiaExtension;
 use Sirix\TwigViteExtension\Twig\ViteExtension;
 
 return [
@@ -15,7 +14,6 @@ return [
     'twig'      => [
         'extensions' => [
             ViteExtension::class,
-            InertiaExtension::class,
         ],
     ],
 ];

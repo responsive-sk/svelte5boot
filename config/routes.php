@@ -40,4 +40,6 @@ use Psr\Container\ContainerInterface;
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
     $app->get('/', App\Handler\HomePageHandler::class, 'home');
     $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
+    $app->get('/api/component-demo', App\Handler\ComponentDemoHandler::class, 'api.component-demo');
+    $app->get('/hero', App\Handler\HeroHandler::class, 'hero');
 };

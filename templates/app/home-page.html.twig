@@ -15,6 +15,39 @@
         </p>
     </div>
 
+    <div class="min-h-screen flex flex-col items-center justify-center gap-6 p-6 text-center">
+        <h1 class="text-3xl font-bold">Welcome to Mezzio + HTMX</h1>
+        <p class="text-lg">Greeting from server: <span class="font-mono">{{ greeting }}</span></p>
+
+        <div class="flex gap-4 items-center justify-center">
+            <button class="px-4 py-2 rounded bg-emerald-600 text-white" hx-get="/api/ping" hx-target="#count-display" hx-swap="innerHTML">
+                Click to Ping
+            </button>
+            <button class="px-4 py-2 rounded bg-slate-700 text-white" hx-get="/" hx-target="body">
+                Reload via HTMX
+            </button>
+            <button class="px-4 py-2 rounded bg-purple-600 text-white" hx-get="/api/component-demo" hx-target="#component-display" hx-swap="innerHTML">
+                Load Svelte Component
+            </button>
+        </div>
+
+        <div id="count-display">Ping response will appear here</div>
+        <div id="component-display" class="mt-4 p-4 border rounded bg-gray-50" hx-get="/api/component-demo" hx-trigger="load" hx-target="#component-display" hx-swap="innerHTML">Component HTML will appear here</div>
+
+        <div class="mt-8 w-full max-w-5xl">
+            <script>
+              window.__APP_GREETING__ = {{ greeting|json_encode|raw }};
+            </script>
+            {{ vite_entry_script_tags('resources/js/app.ts') }}
+            <div id="app"></div>
+            <div id="tailwind-hero" hx-get="/hero" hx-trigger="load" hx-target="#tailwind-hero" hx-swap="innerHTML">
+                <!-- Hero content will be loaded here -->
+            </div>
+        </div>
+
+        <p class="opacity-80">This page demonstrates HTMX in a Mezzio app.</p>
+    </div>
+
     <div class="row">
         <div class="col-md-4">
             <h2>

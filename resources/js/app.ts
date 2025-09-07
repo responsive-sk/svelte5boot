@@ -1,20 +1,20 @@
 import "../css/app.css";
 import "./bootstrap";
-
-import { createInertiaApp, type ResolvedComponent } from "@inertiajs/svelte";
+import Welcome from "./Pages/Welcome.svelte";
 import { mount } from "svelte";
 
-createInertiaApp({
-  resolve: (name) => {
-    const pages = import.meta.glob<ResolvedComponent>("./Pages/**/*.svelte", {
-      eager: true,
-    });
-    return pages[`./Pages/${name}.svelte`];
-  },
-  setup({ el, App, props }) {
-    mount(App, { target: el!, props });
-  },
-  progress: {
-    color: "#ffffff",
-  },
-});
+const appTarget = document.getElementById("app");
+
+let app: any = null;
+
+if (appTarget) {
+  app = mount(Welcome, {
+    target: appTarget,
+    props: {
+      greeting: (window as any).__APP_GREETING__ ?? "HTMX PSR-15",
+      currentRoute: window.location.pathname || "/",
+    },
+  });
+}
+
+export default app;
