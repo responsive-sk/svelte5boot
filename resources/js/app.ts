@@ -1,6 +1,8 @@
 import "../css/app.css";
 import "./bootstrap";
 import Welcome from "./Pages/Welcome.svelte";
+import TailwindHero from "./Components/TailwindHero.svelte";
+import Nav from "./Components/Nav.svelte";
 import { mount } from "svelte";
 
 const appTarget = document.getElementById("app");
@@ -15,6 +17,22 @@ if (appTarget) {
       currentRoute: window.location.pathname || "/",
     },
   });
+}
+
+// Mount TailwindHero on the index page hero container (uses component defaults)
+const heroTarget = document.getElementById("tailwind-hero");
+let heroApp: any = null;
+if (heroTarget) {
+  heroApp = mount(TailwindHero, {
+    target: heroTarget,
+    props: {},
+  });
+}
+
+// Mount navigation into layout header
+const navRoot = document.getElementById("nav-root");
+if (navRoot) {
+  mount(Nav, { target: navRoot });
 }
 
 export default app;

@@ -38,11 +38,8 @@
             <script>
               window.__APP_GREETING__ = {{ greeting|json_encode|raw }};
             </script>
-            {{ vite_entry_script_tags('resources/js/app.ts') }}
             <div id="app"></div>
-            <div id="tailwind-hero" hx-get="/hero" hx-trigger="load" hx-target="#tailwind-hero" hx-swap="innerHTML">
-                <!-- Hero content will be loaded here -->
-            </div>
+            <div id="tailwind-hero"></div>
         </div>
 
         <p class="opacity-80">This page demonstrates HTMX in a Mezzio app.</p>
