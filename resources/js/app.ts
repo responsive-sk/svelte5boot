@@ -1,6 +1,7 @@
 import "../css/app.css";
 import "./bootstrap";
 import Welcome from "./Pages/Welcome.svelte";
+import CoolIndex from "./Pages/CoolIndex.svelte";
 import TailwindHero from "./Components/TailwindHero.svelte";
 import Nav from "./Components/Nav.svelte";
 import { mount } from "svelte";
@@ -33,6 +34,12 @@ if (heroTarget) {
 const navRoot = document.getElementById("nav-root");
 if (navRoot) {
   mount(Nav, { target: navRoot });
+}
+
+// Mount CoolIndex page if present
+const coolTarget = document.getElementById("cool-app");
+if (coolTarget) {
+  mount(CoolIndex, { target: coolTarget, props: {} });
 }
 
 export default app;
