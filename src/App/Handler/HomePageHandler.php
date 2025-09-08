@@ -37,12 +37,20 @@ final readonly class HomePageHandler implements RequestHandlerInterface
         /** @var string|null $routeName */
         $routeName    = $currentRoute instanceof RouteResult ? $currentRoute->getMatchedRouteName() : null;
 
-        return new HtmlResponse($this->template->render('app::home-page', [
-            'appName'      => $this->appName,
-            'greeting'     => 'HTMX PSR-15',
-            'route_name'   => $routeName,
+        // Server-side data pre Twig
+        $data = [
+            'title' => 'Domovska stránka',
+            'content' => 'Vitajte v našej aplikácii',
+            'appName' => $this->appName,
+            'greeting' => 'HTMX PSR-15',
+            'route_name' => $routeName,
             // reference router so Psalm does not flag it as unused
             'router_class' => $this->router::class,
-        ]));
+        ];
+
+        // Vráti plnohodnotné HTML
+        return new HtmlResponse(
+            $this->template->render('app::home-page', $data)
+        );
     }
 }

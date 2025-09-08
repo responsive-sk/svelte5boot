@@ -1,11 +1,11 @@
 {
-  "resources/js/app.ts": {
-    "file": "assets/app-e6Y-d2UL.js",
-    "name": "app",
-    "src": "resources/js/app.ts",
+  "resources/js/boot.ts": {
+    "file": "assets/boot-DSVrWxbt.js",
+    "name": "boot",
+    "src": "resources/js/boot.ts",
     "isEntry": true,
     "css": [
-      "assets/app-9cHUydvI.css"
+      "assets/boot-9cHUydvI.css"
     ]
   }
 }

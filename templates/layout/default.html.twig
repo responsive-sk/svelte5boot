@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>{% block title %}{% endblock %} - mezzio</title>
     <link rel="shortcut icon" href="https://getlaminas.org/images/favicon/favicon.ico" />
-    {{ vite_entry_link_tags('resources/js/app.ts') }}
+    <script 
+        src="https://unpkg.com/htmx.org@1.9.12" 
+        integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" 
+        crossorigin="anonymous">
+    </script>
+    {# {{ vite_entry_link_tags('resources/css/boot.ts') }} #}
     <style>
         .app { min-height: 100vh; }
         .app-footer { padding-bottom: 1em; }
@@ -36,8 +41,9 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-    {{ vite_entry_script_tags('resources/js/app.ts') }}
+{#     {% block scripts %}
+        {{ vite_entry_script_tags('resources/js/boot.ts') }}
+    {% endblock %} #}
     {% block javascript %}{% endblock %}
 </body>
 </html>

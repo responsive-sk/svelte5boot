@@ -1,5 +1,5 @@
 import "../css/app.css";
-import "./bootstrap";
+import "./boot";
 import Welcome from "./Pages/Welcome.svelte";
 import CoolIndex from "./Pages/CoolIndex.svelte";
 import TailwindHero from "./Components/TailwindHero.svelte";

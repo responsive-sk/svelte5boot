@@ -22,6 +22,7 @@ return [
         'factories' => [
             App\Handler\ComponentDemoHandler::class => App\Handler\ComponentDemoHandlerFactory::class,
             App\Handler\HeroHandler::class          => App\Handler\HeroHandlerFactory::class,
+            App\Handler\Api\ContentHandler::class   => App\Handler\Api\ContentHandlerFactory::class,
         ],
     ],
 ];

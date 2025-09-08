@@ -1,150 +1,22 @@
-{% extends '@layout/default.html.twig' %}
-
-{% block title %}Home{% endblock %}
+{% extends "layout/default.html.twig" %}
 
 {% block content %}
-    <div class="jumbotron">
-        <h1>Welcome to <span class="mezzio-green">mezzio</span></h1>
-        <p>
-            Congratulations! You have successfully installed the
-            <a href="https://github.com/mezzio/mezzio-skeleton" target="_blank">mezzio skeleton application</a>.
-            This skeleton can serve as a simple starting point for you to begin building your application.
-        </p>
-        <p>
-            Mezzio builds on laminas-stratigility to provide a minimalist PSR-7 middleware framework for PHP.
-        </p>
+<div id="svelte-app">
+    {# Simple loading state - Svelte will replace this #}
+    <div class="p-8 text-center">
+        <div class="text-lg">Načítavam aplikáciu...</div>
     </div>
+</div>
 
-    <div class="min-h-screen flex flex-col items-center justify-center gap-6 p-6 text-center">
-        <h1 class="text-3xl font-bold">Welcome to Mezzio + HTMX</h1>
-        <p class="text-lg">Greeting from server: <span class="font-mono">{{ greeting }}</span></p>
+{# HTMX kontajner pre dynamický obsah #}
+<div id="partial-content"
+     hx-trigger="load"
+     hx-get="/api/latest-content"
+     hx-target="this">
+    {# HTMX sem doplní obsah #}
+</div>
+{% endblock %}
 
-        <div class="flex gap-4 items-center justify-center">
-            <button class="px-4 py-2 rounded bg-emerald-600 text-white" hx-get="/api/ping" hx-target="#count-display" hx-swap="innerHTML">
-                Click to Ping
-            </button>
-            <button class="px-4 py-2 rounded bg-slate-700 text-white" hx-get="/" hx-target="body">
-                Reload via HTMX
-            </button>
-            <button class="px-4 py-2 rounded bg-purple-600 text-white" hx-get="/api/component-demo" hx-target="#component-display" hx-swap="innerHTML">
-                Load Svelte Component
-            </button>
-        </div>
-
-        <div id="count-display">Ping response will appear here</div>
-        <div id="component-display" class="mt-4 p-4 border rounded bg-gray-50" hx-get="/api/component-demo" hx-trigger="load" hx-target="#component-display" hx-swap="innerHTML">Component HTML will appear here</div>
-
-        <div class="mt-8 w-full max-w-5xl">
-            <script>
-              window.__APP_GREETING__ = {{ greeting|json_encode|raw }};
-            </script>
-            <div id="app"></div>
-            <div id="tailwind-hero"></div>
-        </div>
-
-        <p class="opacity-80">This page demonstrates HTMX in a Mezzio app.</p>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>
-                <a href="https://docs.mezzio.dev/mezzio/getting-started/features" target="_blank">
-                    <i class="fa fa-bolt"></i> Agile &amp; Lean
-                </a>
-            </h2>
-            <p>
-                Mezzio is fast, small and perfect for rapid application development, prototyping and api's.
-                You decide how you extend it and choose the best packages from major framework or standalone projects.
-            </p>
-        </div>
-
-        <div class="col-md-4">
-            <h2>
-                <a href="https://github.com/laminas/laminas-diactoros" target="_blank">
-                    <i class="fa fa-exchange-alt"></i> HTTP Messages
-                </a>
-            </h2>
-            <p>
-                HTTP messages are the foundation of web development. Web browsers and HTTP clients such as cURL create
-                HTTP request messages that are sent to a web server, which provides an HTTP response message.
-                Server-side code receives an HTTP request message, and returns an HTTP response message.
-            </p>
-        </div>
-
-        <div class="col-md-4">
-            <h2>
-                <a href="https://github.com/laminas/laminas-stratigility" target="_blank">
-                    <i class="fa fa-dot-circle"></i> Middleware
-                </a>
-            </h2>
-            <p>
-                Middleware is code that exists between the request and response, and which can take the incoming
-                request, perform actions based on it, and either complete the response or pass delegation on to the
-                next middleware in the queue. Your application is easily extended with custom middleware created by
-                yourself or <a href="https://packagist.org/search/?q=middleware" target="_blank">others</a>.
-            </p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>
-                <a href="https://docs.mezzio.dev/mezzio/features/container/intro" target="_blank">
-                    <i class="fa fa-cube"></i> Containers
-                </a>
-            </h2>
-            <p>
-                Mezzio promotes and advocates the usage of Dependency Injection/Inversion of Control containers
-                when writing your applications. Mezzio supports multiple containers which typehints against
-                <a href="https://github.com/php-fig/container" target="_blank">PSR Container</a>.
-            </p>
-            {% if containerName is defined %}
-                <p>
-                    <a href="{{ containerDocs }}" target="_blank">
-                        Get started with {{ containerName }}.
-                    </a>
-                </p>
-            {% endif %}
-        </div>
-
-        <div class="col-md-4">
-            <h2>
-                <a href="https://docs.mezzio.dev/mezzio/features/router/intro" target="_blank">
-                    <i class="fa fa-plane"></i> Routers
-                </a>
-            </h2>
-            <p>
-                One fundamental feature of mezzio is that it provides mechanisms for implementing dynamic
-                routing, a feature required in most modern web applications. Mezzio ships with multiple adapters.
-            </p>
-            {% if routerName is defined %}
-                <p>
-                    <a href="{{ routerDocs }}" target="_blank">
-                        Get started with {{ routerName }}.
-                    </a>
-                </p>
-            {% endif %}
-        </div>
-
-        <div class="col-md-4">
-            <h2>
-                <a href="https://docs.mezzio.dev/mezzio/features/template/twig" target="_blank">
-                    <i class="fa fa-edit"></i> Templating
-                </a>
-            </h2>
-            <p>
-                By default, no middleware in Mezzio is templated. We do not even provide a default templating
-                engine, as the choice of templating engine is often very specific to the project and/or organization.
-                However, Mezzio does provide abstraction for templating, which allows you to write middleware that
-                is engine-agnostic.
-            </p>
-            {% if templateName is defined %}
-                <p>
-                    <a href="{{ templateDocs }}" target="_blank">
-                        Get started with {{ templateName }}.
-                    </a>
-                </p>
-            {% endif %}
-        </div>
-    </div>
+{% block scripts %}
+    {{ vite_entry_script_tags('resources/js/boot.ts') }}
 {% endblock %}

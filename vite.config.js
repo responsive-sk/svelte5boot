@@ -19,7 +19,7 @@ export default defineConfig({
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
-      input: "resources/js/app.ts",
+      input: "resources/js/boot.ts",
     },
   },
   server: {

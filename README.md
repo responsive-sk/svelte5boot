@@ -1,13 +1,15 @@
-# Mezzio + Inertia.js + Svelte Demo
+# Mezzio + Svelte 5 Demo
 
-This repository is a minimal example showing how to build a modern single-page experience with:
+A minimal example for building a modern server-driven SPA with:
 
-- Mezzio (PSR-15 middleware framework)
-- Inertia.js (server-driven SPA technique)
-- Svelte (frontend UI)
-- Vite (asset bundler with manifest integration)
+- **Mezzio** (PSR-15 middleware framework)
+- **htmx.js** (server-driven HTMX SPA technique)
+- **Svelte** (frontend UI)
+- **Vite** (dev server and asset bundler with manifest integration)
 
-It demonstrates server-side Inertia responses in PHP and a Svelte client mounted via a Twig layout that injects Vite assets.
+Mezzio returns Inertia responses that the Svelte app hydrates on the client, enabling a server-driven SPA without a traditional REST/JSON API.
+
+---
 
 ## Prerequisites
 
@@ -15,58 +17,165 @@ It demonstrates server-side Inertia responses in PHP and a Svelte client mounted
 - Composer
 - Node.js 18+ and npm (or pnpm/yarn)
 
-## Quick start
+---
 
-1. Install PHP dependencies
-   - composer install
-2. Install frontend dependencies
-   - npm install
-3. Build assets (development server or production build)
-   - For hot dev server: npm run dev
-   - For production assets: npm run build
-4. Start the PHP server
-   - composer serve
+## Quick Start
+
+1) Install PHP dependencies
+
+```bash
+composer install
+```
+
+2) Install frontend dependencies
+
+```bash
+npm install
+```
+
+3) Start for development or build for production
+
+- Development (Vite dev server):
+
+```bash
+npm run dev
+```
+
+- Production build (outputs to `public/build`):
+
+```bash
+npm run build
+```
+
+4) Start the PHP server
+
+- If `composer serve` is available:
+
+```bash
+composer serve
+```
+
+- Fallback (built-in PHP server):
+
+```bash
+php -S 0.0.0.0:8080 -t public
+```
 
 Then open http://localhost:8080 in your browser.
 
-Notes
+### Copy/paste setup
 
-- During development, the Twig layout uses Vite dev server on http://localhost:5173 (configured in vite.config.js); make sure npm run dev is running.
-- For production, run npm run build once; Twig will read the Vite manifest from public/build/.
+```bash
+composer install
+npm install
+npm run dev # or: npm run build
+composer serve # or: php -S 0.0.0.0:8080 -t public
+```
 
-## What’s inside
+---
 
-- Backend
-  - Mezzio, laminas-diactoros, and sirix/inertia-psr15 (PSR-15 Inertia adapter)
-  - sirix/mezzio-radixrouter for routing
-  - Twig renderer and sirix/twig-vite-extension to link Vite assets
-- Frontend
-  - @inertiajs/svelte with Svelte 5
-  - Vite config outputs to public/build and serves resources/js/app.ts as the entry
+## Development vs. Production
 
-Key files
+- **Development**
+  - The Twig layout uses the Vite dev server at http://localhost:5173 (configured in `vite.config.js`).
+  - Ensure `npm run dev` is running so assets are served and hot reloaded.
 
-- templates/app.html.twig – Twig layout mounts Inertia and injects Vite tags
-- resources/js/app.ts – Inertia app bootstrapping and Svelte mount
-- vite.config.js – Vite build and dev server configuration
+- **Production**
+  - Run `npm run build` once to generate hashed assets in `public/build/`.
+  - The Twig Vite integration reads `public/build/manifest.json` to inject the built assets.
+  - Do not run the Vite dev server in production.
 
-## Common scripts
+---
 
-Composer
+## Project Structure
 
-- composer serve – run PHP built-in server at http://localhost:8080
-- composer development-enable | development-disable | development-status
-- composer clear-config-cache – clear merged config cache
-- composer test – run PHPUnit
+```text
+.
+├─ public/
+│  └─ build/           # Vite production assets (after build)
+├─ resources/
+│  └─ js/
+│     └─ app.ts        # Inertia/Svelte entrypoint
+├─ templates/
+│  └─ app.html.twig    # Base Twig layout that mounts Inertia
+├─ vite.config.js
+├─ composer.json
+└─ README.md
+```
 
-NPM
+---
 
-- npm run dev – start Vite dev server
-- npm run build – build production assets to public/build
-- npm run lint / format – linting and formatting helpers
+## What’s Inside
+
+- **Backend**
+  - [Mezzio](https://docs.mezzio.dev/) (PSR-15)
+  - [laminas-diactoros](https://github.com/laminas/laminas-diactoros)
+  - `sirix/mezzio-radixrouter` (routing)
+  - [Twig](https://twig.symfony.com/) renderer and `sirix/twig-vite-extension` for Vite asset links
+
+- **Frontend**
+  - [Svelte 5](https://svelte.dev/)
+  - [Vite](https://vitejs.dev/) configured to output to `public/build` with `resources/js/app.ts` as the entry
+
+---
+
+## Key Files
+
+- `templates/app.html.twig` – Twig layout mounts Inertia and injects Vite tags
+- `resources/js/app.ts` – Inertia app bootstrapping and Svelte mounting
+- `vite.config.js` – Vite build and dev server configuration
+
+---
+
+## Common Scripts
+
+### Composer Scripts
+
+- `composer serve` – run PHP built-in server at http://localhost:8080
+- `composer development-enable` | `composer development-disable` | `composer development-status`
+- `composer clear-config-cache` – clear merged config cache
+- `composer test` – run PHPUnit
+
+### NPM Scripts
+
+- `npm run dev` – start Vite dev server
+- `npm run build` – build production assets to `public/build`
+- `npm run lint` – lint code
+- `npm run format` – format code
+
+---
+
+## Troubleshooting
+
+- **Vite dev server not reachable on 5173**
+  - Make sure `npm run dev` is running and port 5173 is free.
+  - If the port is in use, either stop the conflicting process or change the port in `vite.config.js`.
+
+- **PHP server port 8080 already in use**
+  - Use another port: `php -S 0.0.0.0:8081 -t public` and open http://localhost:8081.
+
+- **Manifest not found in production**
+  - Run `npm run build` and confirm `public/build/manifest.json` exists.
+  - Ensure the Twig Vite integration is configured to read the manifest.
+
+- **Wrong asset paths in production**
+  - Ensure the `base` option in `vite.config.js` matches your deployment subpath (if any).
+
+- **Stale configuration**
+  - Run `composer clear-config-cache` after changing configuration.
+
+---
 
 ## Credits
 
-- Mezzio by Laminas
-- Inertia.js
-- Svelte
+- [Mezzio](https://docs.mezzio.dev/)
+- [htmx.js](https://htmx.org/)
+- [Svelte](https://svelte.dev/)
+- [Vite](https://vitejs.dev/)
+- [Twig](https://twig.symfony.com/)
+
+---
+
+## License
+
+MIT. See `LICENSE` for details. If the file is missing, add one using the MIT template.
