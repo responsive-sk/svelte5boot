@@ -14,6 +14,7 @@ use Mezzio\Router\Middleware\ImplicitOptionsMiddleware;
 use Mezzio\Router\Middleware\MethodNotAllowedMiddleware;
 use Mezzio\Router\Middleware\RouteMiddleware;
 use Psr\Container\ContainerInterface;
+use App\Middleware\CacheMiddleware;
 
 /**
  * Setup middleware pipeline:
@@ -24,6 +25,9 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // all Exceptions.
     $app->pipe(ErrorHandler::class);
     $app->pipe(ServerUrlMiddleware::class);
+
+    // App-level cache control for HTMX responses
+    $app->pipe(CacheMiddleware::class);
 
     // Pipe more middleware here that you want to execute on every request:
     // - bootstrapping

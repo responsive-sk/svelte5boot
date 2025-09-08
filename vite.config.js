@@ -10,6 +10,7 @@ export default defineConfig({
   resolve: {
     alias: {
       $lib: "/resources/js/lib",
+      '$islands': '/frontend/src/lib/components/islands', // Nový alias
     },
   },
   publicDir: false,
@@ -19,7 +20,10 @@ export default defineConfig({
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
-      input: "resources/js/boot.ts",
+      input: {
+        main: "resources/js/boot.ts",
+        islands: "frontend/src/lib/boot/islands.ts", // Nový vstup
+      },
     },
   },
   server: {

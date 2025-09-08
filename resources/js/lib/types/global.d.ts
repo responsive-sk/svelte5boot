@@ -1,11 +1,14 @@
-import { PageProps as AppPageProps } from "../../types";
-
 declare global {
-  interface Window {
-    htmx: any;
+  // HTMX events
+  interface Document {
+    addEventListener(type: 'htmx:afterSwap', listener: (event: CustomEvent) => void): void;
+    addEventListener(type: 'htmx:afterSettle', listener: (event: CustomEvent) => void): void;
   }
-  
-  const htmx: any;
+
+  // Svelte island contract
+  interface HTMLElement {
+    __svelte_component?: any;
+  }
 }
 
 export {};

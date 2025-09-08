@@ -101,9 +101,8 @@
 ├── README.md
 ├── svelte.config.js
 ├── tailwind.config.js
-├── TODO.md
 ├── tsconfig.eslint.json
 ├── tsconfig.json
 └── vite.config.js
 
-25 directories, 82 files
+25 directories, 81 files

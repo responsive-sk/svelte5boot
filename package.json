@@ -4,7 +4,7 @@
   "description": "The Svelte Inertia Mezzio Starter",
   "keywords": [
     "mezzio",
-    "inertia",
+    "htmx",
     "svelte"
   ],
   "license": "MIT",

@@ -1,49 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="sk">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>{% block title %}{% endblock %} - mezzio</title>
-    <link rel="shortcut icon" href="https://getlaminas.org/images/favicon/favicon.ico" />
-    <script 
-        src="https://unpkg.com/htmx.org@1.9.12" 
-        integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" 
-        crossorigin="anonymous">
-    </script>
-    {# {{ vite_entry_link_tags('resources/css/boot.ts') }} #}
-    <style>
-        .app { min-height: 100vh; }
-        .app-footer { padding-bottom: 1em; }
-        .mezzio-green, h2 a, h2 a:hover { color: #009655; }
-    </style>
-    {% block stylesheets %}{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Moja App{% endblock %}</title>
+  {# HTMX z CDN #}
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  {# Vite assets #}
+  {% block stylesheets %}
+    {{ vite().tag('resources/js/boot.ts') }}
+    {{ vite().tag('frontend/src/lib/boot/islands.ts') }}
+  {% endblock %}
 </head>
 <body class="app font-sans antialiased bg-gray-900 text-white">
-    <header class="app-header">
-        <div id="nav-root"></div>
-    </header>
+  <header class="app-header">
+    <div id="nav-root"></div>
+  </header>
 
-    <div class="app-content">
-        <main class="mx-auto max-w-6xl px-4">
-            {% block content %}{% endblock %}
-        </main>
+  <div class="app-content">
+    <main class="mx-auto max-w-6xl px-4">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <div class="container">
+      <hr />
+      <p>&copy; 2025 Laminas Project</p>
     </div>
-
-    <footer class="app-footer">
-        <div class="container">
-            <hr />
-            {% block footer %}
-                <p>
-                    &copy; {{ "now"|date("Y") }} <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
-                </p>
-            {% endblock %}
-        </div>
-    </footer>
-
-{#     {% block scripts %}
-        {{ vite_entry_script_tags('resources/js/boot.ts') }}
-    {% endblock %} #}
-    {% block javascript %}{% endblock %}
+  </footer>
 </body>
 </html>
