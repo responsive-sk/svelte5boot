@@ -21,7 +21,7 @@ return [
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
             App\Handler\ComponentDemoHandler::class => App\Handler\ComponentDemoHandlerFactory::class,
-            App\Handler\HeroHandler::class => App\Handler\HeroHandlerFactory::class,
+            App\Handler\HeroHandler::class          => App\Handler\HeroHandlerFactory::class,
         ],
     ],
 ];

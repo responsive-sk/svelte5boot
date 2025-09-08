@@ -8,8 +8,10 @@ namespace App;
  * The configuration provider for the App module
  *
  * @see https://docs.laminas.dev/laminas-component-installer/
+ *
+ * @psalm-suppress UnusedClass This class is referenced via config/config.php and strings
  */
-class ConfigProvider
+final class ConfigProvider
 {
     /**
      * Returns the configuration array
@@ -35,9 +37,10 @@ class ConfigProvider
                 Handler\PingHandler::class => Handler\PingHandler::class,
             ],
             'factories'  => [
-                Handler\HomePageHandler::class => Handler\HomePageHandlerFactory::class,
+                Handler\HomePageHandler::class      => Handler\HomePageHandlerFactory::class,
                 Handler\ComponentDemoHandler::class => Handler\ComponentDemoHandlerFactory::class,
-                Handler\CoolIndexHandler::class => Handler\CoolIndexHandlerFactory::class,
+                Handler\CoolIndexHandler::class     => Handler\CoolIndexHandlerFactory::class,
+                Handler\HeroHandler::class          => Handler\HeroHandlerFactory::class,
             ],
         ];
     }

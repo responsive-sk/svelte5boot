@@ -1,4 +1,3 @@
 import { PageProps as AppPageProps } from "../../types";
 
-declare global {
-}
+declare global {}

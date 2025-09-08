@@ -6,14 +6,18 @@ namespace App\Handler;
 
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Container\ContainerInterface;
+use function assert;
 
 final class HeroHandlerFactory
 {
     public function __invoke(ContainerInterface $container): HeroHandler
     {
-        $template = $container->has(TemplateRendererInterface::class)
-            ? $container->get(TemplateRendererInterface::class)
-            : null;
+        $template = null;
+        if ($container->has(TemplateRendererInterface::class)) {
+            $service = $container->get(TemplateRendererInterface::class);
+            assert($service instanceof TemplateRendererInterface);
+            $template = $service;
+        }
 
         return new HeroHandler($template);
     }

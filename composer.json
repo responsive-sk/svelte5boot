@@ -1,13 +1,11 @@
 {
-  "name": "sirix/mezzio-inertia-demo",
-  "description": "Mezzio + Inertia.js + Svelte demo application showcasing server-driven SPA with Vite and Twig.",
+  "name": "responsive-sk/svelte5boot",
+  "description": "Mezzio + Svelte 5 demo application with Vite and Twig.",
   "type": "project",
   "license": "BSD-3-Clause",
   "keywords": [
     "mezzio",
     "laminas",
-    "inertiajs",
-    "inertia",
     "svelte",
     "vite",
     "twig",
@@ -59,7 +57,6 @@
     "mezzio/mezzio": "^3.20.1",
     "mezzio/mezzio-helpers": "^5.17",
     "mezzio/mezzio-twigrenderer": "^2.15",
-
     "sirix/mezzio-radixrouter": "^3.0",
     "sirix/sirix-config": "^1.0",
     "sirix/twig-vite-extension": "^1.0"

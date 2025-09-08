@@ -4,28 +4,45 @@ declare(strict_types=1);
 
 namespace App\Handler;
 
+use Laminas\Diactoros\Response\HtmlResponse;
+use Laminas\Diactoros\Response\JsonResponse;
+use Mezzio\Router\RouterInterface;
+use Mezzio\Router\RouteResult;
+use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Mezzio\Template\TemplateRendererInterface;
 
 final readonly class HomePageHandler implements RequestHandlerInterface
 {
     public function __construct(
         private string $appName,
-        private \Mezzio\Router\RouterInterface $router,
+        private RouterInterface $router,
         private ?TemplateRendererInterface $template = null,
     ) {
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $response = new \Laminas\Diactoros\Response\HtmlResponse(
-            $this->template?->render('app::home-page', [
-                'appName' => $this->appName,
+        if ($this->template === null) {
+            return new JsonResponse([
+                'appName'  => $this->appName,
                 'greeting' => 'HTMX PSR-15',
-            ]) ?? 'Template renderer not available'
-        );
-        return $response;
+            ]);
+        }
+
+        // Capture current route result if available for template context
+        /** @var RouteResult|null $currentRoute */
+        $currentRoute = $request->getAttribute(RouteResult::class);
+        /** @var string|null $routeName */
+        $routeName    = $currentRoute instanceof RouteResult ? $currentRoute->getMatchedRouteName() : null;
+
+        return new HtmlResponse($this->template->render('app::home-page', [
+            'appName'      => $this->appName,
+            'greeting'     => 'HTMX PSR-15',
+            'route_name'   => $routeName,
+            // reference router so Psalm does not flag it as unused
+            'router_class' => $this->router::class,
+        ]));
     }
 }

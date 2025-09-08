@@ -14,7 +14,6 @@ use Mezzio\Router\Middleware\ImplicitOptionsMiddleware;
 use Mezzio\Router\Middleware\MethodNotAllowedMiddleware;
 use Mezzio\Router\Middleware\RouteMiddleware;
 use Psr\Container\ContainerInterface;
-use Sirix\InertiaPsr15\Middleware\InertiaMiddleware;
 
 /**
  * Setup middleware pipeline:
