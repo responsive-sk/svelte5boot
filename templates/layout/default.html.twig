@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>{% block title %}Moja App{% endblock %}</title>
   {# HTMX z CDN #}
   <script src="https://unpkg.com/htmx.org@1.9.12"></script>
   {# Vite assets #}
   {% block stylesheets %}
-    {{ vite().tag('resources/js/boot.ts') }}
-    {{ vite().tag('frontend/src/lib/boot/islands.ts') }}
+    {{ vite_entry_link_tags('resources/js/boot.ts') }}
+    {{ vite_entry_link_tags('frontend/src/lib/boot/islands.ts') }}
   {% endblock %}
 </head>
 <body class="app font-sans antialiased bg-gray-900 text-white">
@@ -29,5 +30,9 @@
       <p>&copy; 2025 Laminas Project</p>
     </div>
   </footer>
+
+  {% block scripts %}
+    {{ vite_entry_script_tags('resources/js/boot.ts') }}
+  {% endblock %}
 </body>
 </html>
