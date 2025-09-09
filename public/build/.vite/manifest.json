@@ -1,11 +1,11 @@
 {
   "resources/js/boot.ts": {
-    "file": "assets/boot-DSVrWxbt.js",
-    "name": "boot",
+    "file": "assets/main-oS-0-fc8.js",
+    "name": "main",
     "src": "resources/js/boot.ts",
     "isEntry": true,
     "css": [
-      "assets/boot-9cHUydvI.css"
+      "assets/main-DwmMWw1j.css"
     ]
   }
 }

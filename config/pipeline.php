@@ -15,6 +15,7 @@ use Mezzio\Router\Middleware\MethodNotAllowedMiddleware;
 use Mezzio\Router\Middleware\RouteMiddleware;
 use Psr\Container\ContainerInterface;
 use App\Middleware\CacheMiddleware;
+use App\Middleware\CspMiddleware;
 
 /**
  * Setup middleware pipeline:
@@ -26,8 +27,17 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     $app->pipe(ErrorHandler::class);
     $app->pipe(ServerUrlMiddleware::class);
 
+    // Session middleware for CSRF
+    $app->pipe(\Mezzio\Session\SessionMiddleware::class);
+
+    // CSRF protection
+    $app->pipe(\Mezzio\Csrf\CsrfMiddleware::class);
+
     // App-level cache control for HTMX responses
     $app->pipe(CacheMiddleware::class);
+
+    // CSP middleware
+    $app->pipe(CspMiddleware::class);
 
     // Pipe more middleware here that you want to execute on every request:
     // - bootstrapping
@@ -80,4 +90,11 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // NotFoundHandler kicks in; alternately, you can provide other fallback
     // middleware to execute.
     $app->pipe(NotFoundHandler::class);
+
+    // Override default 404 handler with custom one
+    // Mezzio\Application does not have pipeErrorHandlerMiddleware method
+    // Instead, we need to configure the error handler middleware in the container config or use the default NotFoundHandler override
+
+    // So, remove the above override here and rely on container config or default behavior
+
 };

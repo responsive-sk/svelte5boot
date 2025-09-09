@@ -46,6 +46,7 @@ final readonly class HomePageHandler implements RequestHandlerInterface
             'route_name' => $routeName,
             // reference router so Psalm does not flag it as unused
             'router_class' => $this->router::class,
+            'request' => $request,
         ];
 
         // Vráti plnohodnotné HTML

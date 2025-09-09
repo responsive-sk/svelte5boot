@@ -42,6 +42,7 @@ final class ConfigProvider
                 Handler\CoolIndexHandler::class     => Handler\CoolIndexHandlerFactory::class,
                 Handler\HeroHandler::class          => Handler\HeroHandlerFactory::class,
                 Handler\Api\ContentHandler::class   => Handler\Api\ContentHandlerFactory::class,
+                Handler\TestFrontendHandler::class  => Handler\TestFrontendHandlerFactory::class,
             ],
         ];
     }

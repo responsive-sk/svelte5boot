@@ -13,6 +13,8 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \Mezzio\Session\ConfigProvider::class,
+    \Mezzio\Session\Ext\ConfigProvider::class,
     \Sirix\TwigViteExtension\ConfigProvider::class,
     \Sirix\Config\ConfigProvider::class,
     \Sirix\Mezzio\Router\RadixRouter\ConfigProvider::class,
@@ -22,6 +24,7 @@ $aggregator = new ConfigAggregator([
     new ArrayProvider($cacheConfig),
     \Mezzio\Helper\ConfigProvider::class,
     \Mezzio\ConfigProvider::class,
+    \Mezzio\Csrf\ConfigProvider::class,
     \Mezzio\Router\ConfigProvider::class,
     \Laminas\Diactoros\ConfigProvider::class,
     // Swoole config to overwrite some services (if installed)

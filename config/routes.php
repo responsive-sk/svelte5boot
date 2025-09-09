@@ -45,4 +45,6 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->get('/api/partial-content', App\Handler\Api\ContentHandler::class, 'api.partial-content');
     $app->get('/hero', App\Handler\HeroHandler::class, 'hero');
     $app->get('/cool', App\Handler\CoolIndexHandler::class, 'cool');
+    $app->get('/test-frontend', App\Handler\TestFrontendHandler::class, 'test-frontend');
+    $app->post('/api/test-csrf', App\Handler\TestCsrfHandler::class, 'api.test-csrf');
 };

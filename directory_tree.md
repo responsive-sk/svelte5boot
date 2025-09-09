@@ -3,6 +3,7 @@
 │   └── clear-config-cache.php
 ├── config
 │   ├── autoload
+│   │   ├── csrf.global.php
 │   │   ├── dependencies.global.php
 │   │   ├── development.local.php -> development.local.php.dist
 │   │   ├── development.local.php.dist
@@ -10,6 +11,7 @@
 │   │   ├── local.php.dist
 │   │   ├── mezzio.global.php
 │   │   ├── radix-router.global.php
+│   │   ├── security.global.php
 │   │   ├── template.global.php
 │   │   └── vite.global.php
 │   ├── config.php
@@ -23,6 +25,17 @@
 │   ├── cache
 │   │   └── radix-cache.php
 │   └── .gitignore
+├── frontend
+│   └── src
+│       ├── lib
+│       │   ├── boot
+│       │   │   └── islands.ts
+│       │   └── components
+│       │       └── islands
+│       │           ├── AddToCart.svelte
+│       │           └── Alert.svelte
+│       └── styles
+│           └── tailwind.css
 ├── .qodo
 ├── resources
 │   ├── css
@@ -38,6 +51,8 @@
 │       │   ├── SearchModal.svelte
 │       │   └── TailwindHero.svelte
 │       ├── lib
+│       │   ├── bootstrap
+│       │   │   └── islands.ts
 │       │   └── types
 │       │       ├── global.d.ts
 │       │       └── vite-env.d.ts
@@ -45,7 +60,6 @@
 │       │   ├── CoolIndex.svelte
 │       │   └── Welcome.svelte
 │       ├── app.svelte
-│       ├── app.ts
 │       └── boot.ts
 ├── src
 │   └── App
@@ -61,19 +75,35 @@
 │       │   ├── HeroHandler.php
 │       │   ├── HomePageHandlerFactory.php
 │       │   ├── HomePageHandler.php
-│       │   └── PingHandler.php
+│       │   ├── PingHandler.php
+│       │   ├── TestCsrfHandlerFactory.php
+│       │   ├── TestCsrfHandler.php
+│       │   ├── TestFrontendHandlerFactory.php
+│       │   └── TestFrontendHandler.php
+│       ├── Middleware
+│       │   ├── CacheMiddleware.php
+│       │   └── CspMiddleware.php
+│       ├── View
+│       │   ├── Helper
+│       │   │   └── CsrfHelper.php
+│       │   └── Twig
+│       │       └── CsrfExtension.php
 │       └── ConfigProvider.php
 ├── templates
 │   ├── app
 │   │   ├── component-demo.html.twig
 │   │   ├── cool-index.html.twig
 │   │   ├── hero.html.twig
-│   │   └── home-page.html.twig
+│   │   ├── home-page.html.twig
+│   │   ├── products.html.twig
+│   │   └── test-frontend.html.twig
 │   ├── error
 │   │   ├── 404.html.twig
 │   │   └── error.html.twig
 │   ├── layout
 │   │   └── default.html.twig
+│   ├── partials
+│   │   └── components.twig
 │   └── app.html.twigZAL
 ├── test
 │   └── AppTest
@@ -86,6 +116,8 @@
 ├── composer.lock
 ├── COPYRIGHT.md
 ├── directory_tree.md
+├── .env
+├── .env.example
 ├── eslint.config.js
 ├── .gitignore
 ├── LICENSE.md
@@ -101,8 +133,9 @@
 ├── README.md
 ├── svelte.config.js
 ├── tailwind.config.js
+├── TODO.md
 ├── tsconfig.eslint.json
 ├── tsconfig.json
 └── vite.config.js
 
-25 directories, 81 files
+38 directories, 101 files

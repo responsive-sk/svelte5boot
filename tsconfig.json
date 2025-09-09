@@ -15,12 +15,15 @@
     "paths": {
       "$lib": ["./resources/js/lib"],
       "$lib/*": ["./resources/js/lib/*"],
-      "@/*": ["./resources/js/*"]
+      "$islands": ["./frontend/src/lib/components/islands"], // ADDED
+      "$islands/*": ["./frontend/src/lib/components/islands/*"] // ADDED
     }
   },
   "include": [
     "resources/js/**/*.ts",
     "resources/js/**/*.svelte",
-    "resources/js/**/*.d.ts"
+    "resources/js/**/*.d.ts",
+    "frontend/src/**/*.ts", // ADDED
+    "frontend/src/**/*.svelte" // ADDED
   ]
 }
