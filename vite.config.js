@@ -2,9 +2,7 @@ import { svelte, vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { defineConfig } from "vite";
 import { resolve } from "path";
 
-
 export default defineConfig({
-
   plugins: [
     svelte({
       preprocess: vitePreprocess(),
@@ -13,46 +11,46 @@ export default defineConfig({
       }
     }),
   ],
-
   resolve: {
     alias: {
-      $lib: resolve('./frontend/src/lib'),
-      $components: resolve('./frontend/src/lib/components'),
-      $pages: resolve('./frontend/src/pages'),
+      '$lib': resolve('./frontend/src/lib'),
+      '$components': resolve('./frontend/src/lib/components'),
+      '$stores': resolve('./frontend/src/lib/stores'),
+      '$utils': resolve('./frontend/src/lib/utils'),
+      '$pages': resolve('./frontend/src/pages'),
     },
   },
-
   publicDir: false,
-
   build: {
+    minify: 'esbuild',
+    esbuild: {
+      legalComments: 'none',
+      minify: true,
+      target: 'es2020',
+    },
     manifest: true,
     outDir: "public/build",
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve('./frontend/src/app.ts'), // Nový vstupný bod
+        main: resolve("./frontend/src/app.ts"),
       },
       output: {
         chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash][extname]',
-        // Oprav banner/footer syntax
-        banner: () => "/*! Project: responsive.sk svelte5boot */",
-        footer: () => "// END",
       }
     },
     sourcemap: process.env.NODE_ENV !== 'production'
   },
-
   optimizeDeps: {
     exclude: ['svelte']
   },
-
-  // server: {
-  //   host: "localhost",
-  //   port: 5173,
-  //   strictPort: true,
-  //   cors: true,
-  //   origin: "http://localhost:5173"
-  // }
+  server: {
+    host: "localhost",
+    port: 5173,
+    strictPort: true,
+    cors: true,
+    origin: "http://localhost:5173"
+  }
 });

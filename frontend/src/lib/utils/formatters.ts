@@ -1,9 +1,7 @@
-// frontend/src/lib/utils/formatters.ts
-
-export function formatDate(date: Date): string {
-  return date.toLocaleDateString();
+export function formatPrice(price: number, currency: string = '€'): string {
+  return `${price.toFixed(2)} ${currency}`;
 }
 
-export function formatPrice(price: number): string {
-  return `$${price.toFixed(2)}`;
+export function formatDate(date: Date): string {
+  return date.toLocaleDateString('sk-SK');
 }
