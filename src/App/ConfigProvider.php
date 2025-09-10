@@ -18,6 +18,8 @@ final class ConfigProvider
      *
      * To add a bit of a structure, each section is defined in a separate
      * method which returns an array with its configuration.
+     *
+     * @return array<string, mixed>
      */
     public function __invoke(): array
     {
@@ -29,26 +31,30 @@ final class ConfigProvider
 
     /**
      * Returns the container dependencies
+     *
+     * @return array{invokables: array<class-string, class-string>, factories: array<class-string, class-string>}
      */
     public function getDependencies(): array
     {
         return [
             'invokables' => [
-                Handler\PingHandler::class => Handler\PingHandler::class,
+                Handler\Web\PingHandler::class => Handler\Web\PingHandler::class,
             ],
             'factories'  => [
-                Handler\HomePageHandler::class      => Handler\HomePageHandlerFactory::class,
-                Handler\ComponentDemoHandler::class => Handler\ComponentDemoHandlerFactory::class,
-                Handler\CoolIndexHandler::class     => Handler\CoolIndexHandlerFactory::class,
-                Handler\HeroHandler::class          => Handler\HeroHandlerFactory::class,
-                Handler\Api\ContentHandler::class   => Handler\Api\ContentHandlerFactory::class,
-                Handler\TestFrontendHandler::class  => Handler\TestFrontendHandlerFactory::class,
+                Handler\Web\HomePageHandler::class      => Handler\Web\HomePageHandlerFactory::class,
+                Handler\Web\ComponentDemoHandler::class => Handler\Web\ComponentDemoHandlerFactory::class,
+                Handler\Web\CoolIndexHandler::class     => Handler\Web\CoolIndexHandlerFactory::class,
+                Handler\Web\HeroHandler::class          => Handler\Web\HeroHandlerFactory::class,
+                Handler\Htmx\ContentHandler::class      => Handler\Htmx\ContentHandlerFactory::class,
+                Handler\Web\TestFrontendHandler::class  => Handler\Web\TestFrontendHandlerFactory::class,
             ],
         ];
     }
 
     /**
      * Returns the templates configuration
+     *
+     * @return array{paths: array<string, list<string>>}
      */
     public function getTemplates(): array
     {

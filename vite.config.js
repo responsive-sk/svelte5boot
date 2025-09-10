@@ -16,22 +16,21 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      $lib: resolve("./resources/js/lib"),
-      $islands: resolve("./frontend/src/lib/components/islands"),
+      $lib: resolve('./frontend/src/lib'),
+      '@': resolve('./frontend/src'),
     },
   },
 
   publicDir: false,
 
-  build: {    
+  build: {
     manifest: true,
     outDir: "public/build",
     assetsDir: "assets",
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve("./resources/js/boot.ts"),
-        // islands: "frontend/src/lib/boot/islands.ts",
+        main: resolve('./frontend/src/app.ts'), // Nový vstupný bod
       },
       output: {
         chunkFileNames: 'assets/[name]-[hash].js',

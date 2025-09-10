@@ -1,11 +1,45 @@
 {
-  "resources/js/boot.ts": {
-    "file": "assets/main-oS-0-fc8.js",
+  "frontend/src/app.ts": {
+    "file": "assets/main-C3sqNWw1.js",
     "name": "main",
-    "src": "resources/js/boot.ts",
+    "src": "frontend/src/app.ts",
     "isEntry": true,
+    "dynamicImports": [
+      "frontend/src/lib/boot/islands.ts"
+    ],
     "css": [
-      "assets/main-DwmMWw1j.css"
+      "assets/main-CBrrIEdg.css"
+    ]
+  },
+  "frontend/src/lib/boot/islands.ts": {
+    "file": "assets/islands--I7iQHtG.js",
+    "name": "islands",
+    "src": "frontend/src/lib/boot/islands.ts",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/src/app.ts"
+    ],
+    "dynamicImports": [
+      "frontend/src/lib/islands/AddToCart.svelte",
+      "frontend/src/lib/islands/Alert.svelte"
+    ]
+  },
+  "frontend/src/lib/islands/AddToCart.svelte": {
+    "file": "assets/AddToCart-D-y1_zFt.js",
+    "name": "AddToCart",
+    "src": "frontend/src/lib/islands/AddToCart.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/src/app.ts"
+    ]
+  },
+  "frontend/src/lib/islands/Alert.svelte": {
+    "file": "assets/Alert-C_xe2oKQ.js",
+    "name": "Alert",
+    "src": "frontend/src/lib/islands/Alert.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/src/app.ts"
     ]
   }
 }

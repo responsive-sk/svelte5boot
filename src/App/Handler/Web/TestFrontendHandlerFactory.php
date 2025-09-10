@@ -11,8 +11,8 @@ class TestFrontendHandlerFactory
 {
     public function __invoke(ContainerInterface $container): TestFrontendHandler
     {
-        return new TestFrontendHandler(
-            $container->get(TemplateRendererInterface::class)
-        );
+        $renderer = $container->get(TemplateRendererInterface::class);
+        /** @var TemplateRendererInterface $renderer */
+        return new TestFrontendHandler($renderer);
     }
 }

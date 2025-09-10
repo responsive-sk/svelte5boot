@@ -9,7 +9,7 @@ use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final readonly class ComponentDemoHandler extends AbstractHandler
+final class ComponentDemoHandler extends AbstractHandler
 {
     public function __construct(?TemplateRendererInterface $template = null)
     {

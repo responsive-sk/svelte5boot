@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace AppTest\Handler;
 
-use App\Handler\HomePageHandler;
-use App\Handler\HomePageHandlerFactory;
+use App\Handler\Web\HomePageHandler;
+use App\Handler\Web\HomePageHandlerFactory;
 use AppTest\InMemoryContainer;
 use Mezzio\Router\RouterInterface;
 use Mezzio\Template\TemplateRendererInterface;

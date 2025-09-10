@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AppTest\Handler;
 
-use App\Handler\PingHandler;
+use App\Handler\Web\PingHandler;
 use Laminas\Diactoros\Response\JsonResponse;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
@@ -23,6 +23,7 @@ final class PingHandlerTest extends TestCase
             $this->createMock(ServerRequestInterface::class)
         );
 
+        /** @var object $json */
         $json = json_decode((string) $response->getBody(), null, 512, JSON_THROW_ON_ERROR);
 
         self::assertInstanceOf(JsonResponse::class, $response);

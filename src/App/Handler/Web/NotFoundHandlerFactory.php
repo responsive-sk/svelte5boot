@@ -11,8 +11,8 @@ class NotFoundHandlerFactory
 {
     public function __invoke(ContainerInterface $container): NotFoundHandler
     {
-        return new NotFoundHandler(
-            $container->get(TemplateRendererInterface::class)
-        );
+        $renderer = $container->get(TemplateRendererInterface::class);
+        /** @var TemplateRendererInterface $renderer */
+        return new NotFoundHandler($renderer);
     }
 }

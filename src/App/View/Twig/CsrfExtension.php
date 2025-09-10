@@ -3,6 +3,7 @@
 namespace App\View\Twig;
 
 use Mezzio\Csrf\CsrfMiddleware;
+use Mezzio\Csrf\CsrfGuardInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -19,16 +20,20 @@ class CsrfExtension extends AbstractExtension
         ];
     }
 
+    /** @param array<string, mixed> $context */
     public function getToken($context): string
     {
+        /** @var ServerRequestInterface|null $request */
         $request = $context['request'] ?? null;
         if (!$request) {
             return '';
         }
+        /** @var CsrfGuardInterface|null $guard */
         $guard = $request->getAttribute(CsrfMiddleware::GUARD_ATTRIBUTE);
         return $guard ? $guard->generateToken() : '';
     }
 
+    /** @param array<string, mixed> $context */
     public function getTokenInput($context): string
     {
         return sprintf(

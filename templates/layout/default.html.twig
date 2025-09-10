@@ -9,8 +9,7 @@
   <script src="https://unpkg.com/htmx.org@1.9.12"></script>
   {# Vite assets #}
   {% block stylesheets %}
-    {{ vite_entry_link_tags('resources/js/boot.ts') }}
-    {{ vite_entry_link_tags('frontend/src/lib/boot/islands.ts') }}
+    {{ vite_entry_link_tags('frontend/src/app.ts') }}
   {% endblock %}
 </head>
 <body class="app font-sans antialiased bg-gray-900 text-white">
@@ -32,7 +31,7 @@
   </footer>
 
   {% block scripts %}
-    {{ vite_entry_script_tags('resources/js/boot.ts') }}
+    {{ vite_entry_script_tags('frontend/src/app.ts') }}
   {% endblock %}
 </body>
 </html>

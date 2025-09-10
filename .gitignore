@@ -4,6 +4,7 @@
 /clover.xml
 /coveralls-upload.json
 /phpunit.xml
+/directory_tree.md
 /vendor/
 /node_modules/
 

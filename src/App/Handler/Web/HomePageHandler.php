@@ -12,7 +12,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final class HomePageHandler extends AbstractHandler implements RequestHandlerInterface
+final readonly class HomePageHandler extends AbstractHandler implements RequestHandlerInterface
 {
     public function __construct(
         private string $appName,

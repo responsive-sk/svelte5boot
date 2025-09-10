@@ -10,12 +10,15 @@ use Laminas\Diactoros\Response;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 
-abstract class AbstractHandler
+readonly abstract class AbstractHandler
 {
-    protected function __construct(protected ?TemplateRendererInterface $template = null)
+    public function __construct(protected ?TemplateRendererInterface $template = null)
     {
     }
 
+    /**
+     * @param array<string, mixed> $data
+     */
     protected function htmlResponse(string $template, array $data = []): ResponseInterface
     {
         if ($this->template === null) {
@@ -25,6 +28,9 @@ abstract class AbstractHandler
         return new HtmlResponse($this->template->render($template, $data));
     }
 
+    /**
+     * @param array<string, mixed> $data
+     */
     protected function jsonResponse(array $data): ResponseInterface
     {
         return new JsonResponse($data);

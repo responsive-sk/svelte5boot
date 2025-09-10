@@ -1,6 +1,9 @@
 {% extends "layout/default.html.twig" %}
 
 {% block content %}
+
+<div id="tailwind-hero"></div>
+
 <div id="svelte-app">
     {# Simple loading state - Svelte will replace this #}
     <div class="p-8 text-center">
@@ -17,6 +20,4 @@
 </div>
 {% endblock %}
 
-{% block scripts %}
-    {{ vite_entry_script_tags('resources/js/boot.ts') }}
-{% endblock %}
+

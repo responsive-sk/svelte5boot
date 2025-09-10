@@ -10,7 +10,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 use function time;
 
-final class PingHandler extends AbstractHandler
+final readonly class PingHandler extends AbstractHandler
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {

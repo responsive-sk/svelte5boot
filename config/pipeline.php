@@ -16,6 +16,7 @@ use Mezzio\Router\Middleware\RouteMiddleware;
 use Psr\Container\ContainerInterface;
 use App\Middleware\CacheMiddleware;
 use App\Middleware\CspMiddleware;
+use App\Middleware\SvelteDataMiddleware;
 
 /**
  * Setup middleware pipeline:
@@ -38,6 +39,9 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
 
     // CSP middleware
     $app->pipe(CspMiddleware::class);
+
+    // Svelte hydration data middleware
+    $app->pipe(SvelteDataMiddleware::class);
 
     // Pipe more middleware here that you want to execute on every request:
     // - bootstrapping

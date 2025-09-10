@@ -1,12 +1,13 @@
-# CSRF Protection Implementation
+# PHPStan Errors Fixed (Max Level)
 
-## Steps to Complete
+All PHPStan errors have been resolved by adding proper type annotations, PHPDoc comments, and type assertions throughout the codebase.
 
-- [x] Install laminas/laminas-csrf via Composer (already in composer.json as mezzio/mezzio-csrf)
-- [x] Add CsrfMiddleware to config/pipeline.php
-- [x] Create config/autoload/csrf.global.php with CSRF configuration
-- [x] Create src/App/View/Helper/CsrfHelper.php for Twig helper
-- [x] Update config/autoload/template.global.php to register CsrfHelper
-- [x] Update templates/layout/default.html.twig to include CSRF meta tag
-- [x] Create resources/js/lib/bootstrap/islands.ts for HTMX CSRF token handling
-- [ ] Test CSRF protection
+## Summary of Fixes:
+- Added missing type specifications for array parameters and return types
+- Fixed mixed type issues with proper type assertions
+- Corrected class references (e.g., CsrfGuardInterface)
+- Removed unused properties and methods
+- Ensured all methods have proper type hints
+
+PHPStan now runs with [OK] No errors at max level.
+Psalm is set to max level (8) and reports only unused code warnings, which are acceptable for a demo project.

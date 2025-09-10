@@ -11,6 +11,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class CspMiddleware implements MiddlewareInterface
 {
+    /** @param array<string, string|array<string>> $cspConfig */
     public function __construct(
         private array $cspConfig
     ) {}
@@ -24,15 +25,16 @@ class CspMiddleware implements MiddlewareInterface
         return $response->withHeader('Content-Security-Policy', $cspHeader);
     }
 
+    /** @param array<string, string|array<string>> $config */
     private function buildCspHeader(array $config): string
     {
         $directives = [];
 
         foreach ($config as $directive => $values) {
             if (is_array($values)) {
-                $directives[] = $directive . ' ' . implode(' ', $values);
+                $directives[] = $directive . ' ' . implode(' ', array_map('strval', $values));
             } else {
-                $directives[] = $directive . ' ' . $values;
+                $directives[] = $directive . ' ' . strval($values);
             }
         }
 

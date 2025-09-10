@@ -1,46 +1,36 @@
-// boot pre Svelte ostrovy
+import { mount } from 'svelte';
+
 export function bootIslands(root: HTMLElement = document.body) {
+  // Automatická registrácia ostrovov
   const islands = root.querySelectorAll('[data-component]');
 
   islands.forEach(async (element) => {
-    const componentName = element.getAttribute('data-component');
-    const props = element.getAttribute('data-props');
-
-    if (!componentName) return;
+    const islandName = element.getAttribute('data-component');
+    if (!islandName) return;
 
     try {
-      // Dynamický import komponentu
-      const componentModule = await import(
-        `../components/islands/${componentName}.svelte`
+      // Dynamický import
+      const component = await import(
+        `../islands/${islandName}.svelte`
       );
-      const Component = componentModule.default;
 
-      // Mount komponentu
-      const instance = new Component({
+      mount(component.default, {
         target: element,
-        props: props ? JSON.parse(props) : {},
+        props: (element as HTMLElement).dataset.props ? JSON.parse((element as HTMLElement).dataset.props!) : {}
       });
 
-      // Uloženie inštancie pre prípadné neskoršie odpojenie
-      (element as any).__svelte_component = instance;
     } catch (error) {
-      console.error(`Failed to load island ${componentName}:`, error);
+      console.error(`Island ${islandName} failed to load:`, error);
     }
   });
 }
 
-// Initial boot
+// Initial load
 bootIslands();
 
-// Re-boot po HTMX swapoch
-
-document.addEventListener('htmx:afterSwap', (event: CustomEvent) => {
-  const target = ((event.detail as any)?.target as HTMLElement) ?? document.body;
-  bootIslands(target);
-});
-
-document.addEventListener('htmx:afterSettle', () => {
-  bootIslands();
+// Re-boot after HTMX swaps
+document.addEventListener('htmx:afterSwap', (event) => {
+  bootIslands(event.detail.target as HTMLElement);
 });
 
 // Event-based komunikácia medzi HTMX a Svelte

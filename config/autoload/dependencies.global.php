@@ -13,7 +13,7 @@ return [
         // key is the alias name, the value is the service to which it points.
         'aliases' => [
             // Fully\Qualified\ClassOrInterfaceName::class => Fully\Qualified\ClassName::class,
-            \Mezzio\Handler\NotFoundHandler::class => \App\Handler\NotFoundHandler::class,
+            \Mezzio\Handler\NotFoundHandler::class => \App\Handler\Web\NotFoundHandler::class,
         ],
         // Use 'invokables' for constructor-less services, or services that do
         // not require arguments to the constructor. Map a service name to the
@@ -25,11 +25,20 @@ return [
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
             'server_request_factory' => ServerRequestFactory::class,
-            'App\Handler\ComponentDemoHandler' => App\Handler\ComponentDemoHandlerFactory::class,
-            'App\Handler\HeroHandler' => App\Handler\HeroHandlerFactory::class,
-            'App\Handler\Api\ContentHandler' => App\Handler\Api\ContentHandlerFactory::class,
-            'App\Handler\TestFrontendHandler' => App\Handler\TestFrontendHandlerFactory::class,
-            'App\Handler\NotFoundHandler' => App\Handler\NotFoundHandlerFactory::class,
+            'App\Handler\Web\ComponentDemoHandler' => App\Handler\Web\ComponentDemoHandlerFactory::class,
+            'App\Handler\Web\HeroHandler' => App\Handler\Web\HeroHandlerFactory::class,
+            'App\Handler\Htmx\ContentHandler' => App\Handler\Htmx\ContentHandlerFactory::class,
+            'App\Handler\Htmx\PartialApi' => App\Handler\Htmx\PartialApiFactory::class,
+            'App\Handler\Web\TestFrontendHandler' => App\Handler\Web\TestFrontendHandlerFactory::class,
+            'App\Handler\Web\NotFoundHandler' => App\Handler\Web\NotFoundHandlerFactory::class,
+            'App\Handler\Web\HomePageHandler' => App\Handler\Web\HomePageHandlerFactory::class,
+            'App\Handler\Web\CoolIndexHandler' => App\Handler\Web\CoolIndexHandlerFactory::class,
+            'App\Handler\Web\PingHandler' => App\Handler\Web\PingHandlerFactory::class,
+            'App\Handler\Web\TestCsrfHandler' => App\Handler\Web\TestCsrfHandlerFactory::class,
+            'App\Repository\ProductRepositoryInterface' => function ($container) {
+                return new \App\Repository\ProductRepository();
+            },
+            'App\Service\ProductService' => App\Service\ProductServiceFactory::class,
             'App\Middleware\CspMiddleware' => function ($container) {
                 $config = $container->get('config');
                 return new \App\Middleware\CspMiddleware($config['csp'] ?? []);
