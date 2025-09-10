@@ -1,1 +1,0 @@
-import{a as o,f as r,t as d,c as f,q as m,j as p}from"./main-C3sqNWw1.js";/*! Project: responsive.sk svelte5boot */var i=r('<div class="p-3 rounded border bg-yellow-100 text-yellow-800"> </div>');function c(t,a){let s=o(a,"message",8,"Hello from island");var e=i(),l=p(e);d(()=>m(l,s())),f(t,e)}export{c as default};

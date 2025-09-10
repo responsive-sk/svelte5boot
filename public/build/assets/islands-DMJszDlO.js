@@ -1,0 +1,1 @@
+/*! Project: responsive.sk svelte5boot */document.addEventListener("htmx:configRequest",e=>{const t=document.querySelector('meta[name="csrf-token"]')?.getAttribute("content");t&&!["get","head","options"].includes(e.detail.verb.toLowerCase())&&(e.detail.headers["X-CSRF-Token"]=t)});

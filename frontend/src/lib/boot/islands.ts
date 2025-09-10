@@ -1,48 +1,9 @@
-import { mount } from 'svelte';
+// Add CSRF token to all HTMX POST/PUT/DELETE requests
+document.addEventListener('htmx:configRequest', (event: any) => {
+    const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+    const csrfToken = csrfMeta?.getAttribute('content');
 
-export function bootIslands(root: HTMLElement = document.body) {
-  // Automatická registrácia ostrovov
-  const islands = root.querySelectorAll('[data-component]');
-
-  islands.forEach(async (element) => {
-    const islandName = element.getAttribute('data-component');
-    if (!islandName) return;
-
-    try {
-      // Dynamický import
-      const component = await import(
-        `../islands/${islandName}.svelte`
-      );
-
-      mount(component.default, {
-        target: element,
-        props: (element as HTMLElement).dataset.props ? JSON.parse((element as HTMLElement).dataset.props!) : {}
-      });
-
-    } catch (error) {
-      console.error(`Island ${islandName} failed to load:`, error);
+    if (csrfToken && !['get', 'head', 'options'].includes(event.detail.verb.toLowerCase())) {
+        event.detail.headers['X-CSRF-Token'] = csrfToken;
     }
-  });
-}
-
-// Initial load
-bootIslands();
-
-// Re-boot after HTMX swaps
-document.addEventListener('htmx:afterSwap', (event) => {
-  bootIslands(event.detail.target as HTMLElement);
 });
-
-// Event-based komunikácia medzi HTMX a Svelte
-// Po pridaní do košíka obnov všetky CartCounter ostrovy
-// Svelte komponent (napr. AddToCart) môže dispatchnúť: window.dispatchEvent(new CustomEvent('cart:updated'))
-document.addEventListener('cart:updated', () => {
-  document.querySelectorAll('[data-component="CartCounter"]').forEach((el) => {
-    el.dispatchEvent(new CustomEvent('refresh'));
-  });
-});
-
-// Príklad: Svelte komponent môže posielať notifikačný event
-// window.dispatchEvent(new CustomEvent('notification:show', {
-//   detail: { message: 'Produkt pridaný!', type: 'success' }
-// }));

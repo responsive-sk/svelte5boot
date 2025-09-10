@@ -39,12 +39,12 @@
     <div class="gradient-overlay"></div>
     <div class="pattern-overlay"></div>
   </div>
-
+  
   <!-- Animated Background Elements -->
   <div class="blob blob-1" class:animate={mounted}></div>
   <div class="blob blob-2" class:animate={mounted}></div>
   <div class="blob blob-3" class:animate={mounted}></div>
-
+  
   <!-- Content -->
   <div class="hero-content">
     <div class="content-wrapper">
@@ -53,24 +53,24 @@
         <span class="badge-dot"></span>
         New: Boson PHP v2.0 Available
       </div>
-
+      
       <!-- Main Title -->
       <h1 class="hero-title" class:animate={mounted}>
         {title}
       </h1>
-
+      
       <!-- Subtitle -->
       <p class="hero-subtitle" class:animate={mounted}>
         {subtitle}
       </p>
-
+      
       <!-- Buttons -->
       <div class="hero-buttons" class:animate={mounted}>
         <a href={primaryButton.url} class="btn btn-primary">
           <span class="btn-text">{primaryButton.text}</span>
           <div class="btn-glow"></div>
         </a>
-
+        
         <a href={secondaryButton.url} class="btn btn-secondary">
           <span class="btn-text">{secondaryButton.text}</span>
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -78,7 +78,7 @@
           </svg>
         </a>
       </div>
-
+      
       <!-- Features -->
       <div class="hero-features" class:animate={mounted}>
         {#each features as feature, index}
@@ -90,7 +90,7 @@
       </div>
     </div>
   </div>
-
+  
   <!-- Bottom Wave -->
   <div class="hero-wave">
     <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -403,23 +403,23 @@
 
   /* Animations */
   @keyframes blob-float {
-    0%, 100% {
-      transform: translate(0px, 0px) scale(1);
+    0%, 100% { 
+      transform: translate(0px, 0px) scale(1); 
     }
-    33% {
-      transform: translate(30px, -50px) scale(1.1);
+    33% { 
+      transform: translate(30px, -50px) scale(1.1); 
     }
-    66% {
-      transform: translate(-20px, 20px) scale(0.9);
+    66% { 
+      transform: translate(-20px, 20px) scale(0.9); 
     }
   }
 
   @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
+    0%, 100% { 
+      opacity: 1; 
     }
-    50% {
-      opacity: 0.5;
+    50% { 
+      opacity: 0.5; 
     }
   }
 
@@ -435,19 +435,19 @@
     .hero-content {
       padding: 1rem;
     }
-
+    
     .hero-buttons {
       flex-direction: column;
       align-items: center;
       gap: 1rem;
     }
-
+    
     .hero-features {
       flex-direction: column;
       align-items: center;
       gap: 1rem;
     }
-
+    
     .blob {
       width: 200px;
       height: 200px;
