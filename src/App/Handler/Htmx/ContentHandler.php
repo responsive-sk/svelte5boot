@@ -2,15 +2,21 @@
 
 declare(strict_types=1);
 
-namespace App\Handler\Api;
+namespace App\Handler\Htmx;
 
-use Laminas\Diactoros\Response;
+use App\Handler\AbstractHandler;
+use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final class ContentHandler implements RequestHandlerInterface
+final class ContentHandler extends AbstractHandler implements RequestHandlerInterface
 {
+    public function __construct(?TemplateRendererInterface $template = null)
+    {
+        parent::__construct($template);
+    }
+
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         // Data pre HTMX response
@@ -21,8 +27,6 @@ final class ContentHandler implements RequestHandlerInterface
         </div>';
 
         // Vráti len HTML fragment
-        $response = new Response();
-        $response->getBody()->write($content);
-        return $response->withHeader('Content-Type', 'text/html');
+        return $this->htmxFragment($content);
     }
 }

@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Handler;
+namespace App\Handler\Web;
 
-use Laminas\Diactoros\Response\HtmlResponse;
-use Laminas\Diactoros\Response\JsonResponse;
+use App\Handler\AbstractHandler;
 use Mezzio\Router\RouterInterface;
 use Mezzio\Router\RouteResult;
 use Mezzio\Template\TemplateRendererInterface;
@@ -13,19 +12,20 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final readonly class HomePageHandler implements RequestHandlerInterface
+final class HomePageHandler extends AbstractHandler implements RequestHandlerInterface
 {
     public function __construct(
         private string $appName,
         private RouterInterface $router,
-        private ?TemplateRendererInterface $template = null,
+        ?TemplateRendererInterface $template = null,
     ) {
+        parent::__construct($template);
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         if ($this->template === null) {
-            return new JsonResponse([
+            return $this->jsonResponse([
                 'appName'  => $this->appName,
                 'greeting' => 'HTMX PSR-15',
             ]);
@@ -49,9 +49,6 @@ final readonly class HomePageHandler implements RequestHandlerInterface
             'request' => $request,
         ];
 
-        // Vráti plnohodnotné HTML
-        return new HtmlResponse(
-            $this->template->render('app::home-page', $data)
-        );
+        return $this->htmlResponse('app::home-page', $data);
     }
 }

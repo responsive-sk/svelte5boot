@@ -38,13 +38,14 @@ use Psr\Container\ContainerInterface;
  */
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
-    $app->get('/', App\Handler\HomePageHandler::class, 'home');
-    $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
-    $app->get('/api/component-demo', App\Handler\ComponentDemoHandler::class, 'api.component-demo');
-    $app->get('/api/latest-content', App\Handler\Api\ContentHandler::class, 'api.latest-content');
-    $app->get('/api/partial-content', App\Handler\Api\ContentHandler::class, 'api.partial-content');
-    $app->get('/hero', App\Handler\HeroHandler::class, 'hero');
-    $app->get('/cool', App\Handler\CoolIndexHandler::class, 'cool');
-    $app->get('/test-frontend', App\Handler\TestFrontendHandler::class, 'test-frontend');
-    $app->post('/api/test-csrf', App\Handler\TestCsrfHandler::class, 'api.test-csrf');
+    $app->get('/', App\Handler\Web\HomePageHandler::class, 'home');
+    $app->get('/api/ping', App\Handler\Web\PingHandler::class, 'api.ping');
+    $app->get('/api/component-demo', App\Handler\Web\ComponentDemoHandler::class, 'api.component-demo');
+    $app->get('/api/latest-content', App\Handler\Htmx\ContentHandler::class, 'api.latest-content');
+    $app->get('/api/partial-content', App\Handler\Htmx\ContentHandler::class, 'api.partial-content');
+    $app->get('/api/partial', App\Handler\Htmx\PartialApi::class, 'api.partial');
+    $app->get('/hero', App\Handler\Web\HeroHandler::class, 'hero');
+    $app->get('/cool', App\Handler\Web\CoolIndexHandler::class, 'cool');
+    $app->get('/test-frontend', App\Handler\Web\TestFrontendHandler::class, 'test-frontend');
+    $app->post('/api/test-csrf', App\Handler\Web\TestCsrfHandler::class, 'api.test-csrf');
 };

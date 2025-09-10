@@ -2,19 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\Handler;
+namespace App\Handler\Web;
 
-use Laminas\Diactoros\Response\JsonResponse;
+use App\Handler\AbstractHandler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Server\RequestHandlerInterface;
 
 use function time;
 
-final class PingHandler implements RequestHandlerInterface
+final class PingHandler extends AbstractHandler
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        return new JsonResponse(['ack' => time()]);
+        return $this->jsonResponse(['ack' => time()]);
     }
 }

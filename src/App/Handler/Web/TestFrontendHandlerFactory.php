@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Handler;
+namespace App\Handler\Web;
 
 use Psr\Container\ContainerInterface;
 use Mezzio\Template\TemplateRendererInterface;
 
-class NotFoundHandlerFactory
+class TestFrontendHandlerFactory
 {
-    public function __invoke(ContainerInterface $container): NotFoundHandler
+    public function __invoke(ContainerInterface $container): TestFrontendHandler
     {
-        return new NotFoundHandler(
+        return new TestFrontendHandler(
             $container->get(TemplateRendererInterface::class)
         );
     }

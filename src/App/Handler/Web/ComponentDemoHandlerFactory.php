@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Handler;
+namespace App\Handler\Web;
 
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Container\ContainerInterface;
 use function assert;
 
-final class HeroHandlerFactory
+final class ComponentDemoHandlerFactory
 {
-    public function __invoke(ContainerInterface $container): HeroHandler
+    public function __invoke(ContainerInterface $container): ComponentDemoHandler
     {
         $template = null;
         if ($container->has(TemplateRendererInterface::class)) {
@@ -19,6 +19,6 @@ final class HeroHandlerFactory
             $template = $service;
         }
 
-        return new HeroHandler($template);
+        return new ComponentDemoHandler($template);
     }
 }
