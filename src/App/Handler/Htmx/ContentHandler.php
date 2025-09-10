@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final class ContentHandler extends AbstractHandler implements RequestHandlerInterface
+readonly final class ContentHandler extends AbstractHandler implements RequestHandlerInterface
 {
     public function __construct(?TemplateRendererInterface $template = null)
     {
