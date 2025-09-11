@@ -1,10 +1,10 @@
-import '../css/app.css';
+import '../styles/app.css';
 // Odstráň starý spôsob a importuj mount
 import { mount } from 'svelte';
-import Welcome from './Pages/Welcome.svelte';
-import CoolIndex from './Pages/CoolIndex.svelte';
-import TailwindHero from './Components/TailwindHero.svelte';
-import Header from './Components/Header.svelte';
+import Welcome from '$pages/Welcome.svelte';
+import CoolIndex from '$pages/CoolIndex.svelte';
+import TailwindHero from '$components/ui/TailwindHero.svelte';
+import Header from '$components/layout/Header.svelte';
 
 // Mount hlavnú appku
 const appTarget = document.getElementById('svelte-app');
