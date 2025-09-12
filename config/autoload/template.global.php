@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Sirix\TwigViteExtension\Twig\ViteExtension;
 use App\View\Twig\CsrfExtension;
+use App\View\Twig\SvelteComponentExtension;
 use Psr\Http\Message\ServerRequestInterface;
 
 return [
@@ -13,6 +14,9 @@ return [
                 return new CsrfExtension(
                     $container->get(ServerRequestInterface::class)
                 );
+            },
+            SvelteComponentExtension::class => function ($container) {
+                return new SvelteComponentExtension();
             },
         ],
     ],
@@ -26,6 +30,7 @@ return [
         'extensions' => [
             ViteExtension::class,
             CsrfExtension::class,
+            SvelteComponentExtension::class,
         ],
     ],
 ];

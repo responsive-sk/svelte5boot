@@ -1,12 +1,22 @@
 <script lang="ts">
-  export let greeting: string;
+  import { onMount } from 'svelte';
+  export let greeting: string = 'Default greeting';
+  console.log('Welcome component mounted with greeting:', greeting);
   let count = 0;
+  let loading = true;
+
+  onMount(() => {
+    loading = false;
+  });
 </script>
 
 <svelte:head>
   <title>Welcome</title>
 </svelte:head>
 
+{#if loading}
+<div>Načítavam...</div>
+{:else}
 <div class="min-h-screen flex flex-col items-center justify-center gap-6 p-6 text-center">
   <h1 class="text-3xl font-bold">Welcome to Mezzio + HTMX + Svelte</h1>
   <p class="text-lg">Greeting from server: <span class="font-mono">{greeting}</span></p>
@@ -26,3 +36,4 @@
     <a href="/" class="text-blue-400 underline">Back to Home</a>
   </nav>
 </div>
+{/if}

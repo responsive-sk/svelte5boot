@@ -1,20 +1,76 @@
 {
+  "_svelte-head-DM4990Vm.js": {
+    "file": "assets/svelte-head-DM4990Vm.js",
+    "name": "svelte-head",
+    "imports": [
+      "frontend/src/app.ts"
+    ]
+  },
   "frontend/src/app.ts": {
-    "file": "assets/main-DWSyVkeU.js",
+    "file": "assets/main-6Dkdy8r5.js",
     "name": "main",
     "src": "frontend/src/app.ts",
     "isEntry": true,
     "dynamicImports": [
-      "frontend/src/lib/boot/islands.ts"
+      "frontend/src/lib/components/islands/AddToCart.svelte",
+      "frontend/src/lib/components/islands/Alert.svelte",
+      "frontend/src/pages/App.svelte",
+      "frontend/src/pages/CoolIndex.svelte",
+      "frontend/src/pages/Welcome.svelte"
     ],
     "css": [
-      "assets/main-DYIosWxU.css"
+      "assets/main-TMYR9yr8.css"
     ]
   },
-  "frontend/src/lib/boot/islands.ts": {
-    "file": "assets/islands-DMJszDlO.js",
-    "name": "islands",
-    "src": "frontend/src/lib/boot/islands.ts",
-    "isDynamicEntry": true
+  "frontend/src/lib/components/islands/AddToCart.svelte": {
+    "file": "assets/AddToCart-CZrGsSog.js",
+    "name": "AddToCart",
+    "src": "frontend/src/lib/components/islands/AddToCart.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/src/app.ts"
+    ]
+  },
+  "frontend/src/lib/components/islands/Alert.svelte": {
+    "file": "assets/Alert-3SfeMfWE.js",
+    "name": "Alert",
+    "src": "frontend/src/lib/components/islands/Alert.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/src/app.ts"
+    ]
+  },
+  "frontend/src/pages/App.svelte": {
+    "file": "assets/App-kmfQgf5q.js",
+    "name": "App",
+    "src": "frontend/src/pages/App.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/src/app.ts",
+      "frontend/src/lib/components/islands/AddToCart.svelte"
+    ],
+    "css": [
+      "assets/App-D2JzmUi0.css"
+    ]
+  },
+  "frontend/src/pages/CoolIndex.svelte": {
+    "file": "assets/CoolIndex-C4b8j5v3.js",
+    "name": "CoolIndex",
+    "src": "frontend/src/pages/CoolIndex.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/src/app.ts",
+      "_svelte-head-DM4990Vm.js"
+    ]
+  },
+  "frontend/src/pages/Welcome.svelte": {
+    "file": "assets/Welcome-D9UPH7Gu.js",
+    "name": "Welcome",
+    "src": "frontend/src/pages/Welcome.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "frontend/src/app.ts",
+      "_svelte-head-DM4990Vm.js"
+    ]
   }
 }

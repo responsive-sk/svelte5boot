@@ -13,17 +13,21 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "$lib": ["./resources/js/lib"],
-      "$lib/*": ["./resources/js/lib/*"],
-      "$islands": ["./frontend/src/lib/components/islands"], // ADDED
-      "$islands/*": ["./frontend/src/lib/components/islands/*"] // ADDED
+      "$lib": ["./frontend/src/lib"],
+      "$lib/*": ["./frontend/src/lib/*"],
+      "$components": ["./frontend/src/lib/components"],
+      "$components/*": ["./frontend/src/lib/components/*"],
+      "$stores": ["./frontend/src/lib/stores"],
+      "$stores/*": ["./frontend/src/lib/stores/*"],
+      "$utils": ["./frontend/src/lib/utils"],
+      "$utils/*": ["./frontend/src/lib/utils/*"],
+      "$pages": ["./frontend/src/pages"],
+      "$pages/*": ["./frontend/src/pages/*"]
     }
   },
   "include": [
-    "resources/js/**/*.ts",
-    "resources/js/**/*.svelte",
-    "resources/js/**/*.d.ts",
-    "frontend/src/**/*.ts", // ADDED
-    "frontend/src/**/*.svelte" // ADDED
+    "frontend/src/**/*.ts",
+    "frontend/src/**/*.svelte",
+    "frontend/src/**/*.d.ts"
   ]
 }

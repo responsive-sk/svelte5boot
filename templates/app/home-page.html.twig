@@ -2,22 +2,10 @@
 
 {% block content %}
 
-<div id="tailwind-hero"></div>
+{# <div id="tailwind-hero"></div> #}
 
-<div id="svelte-app">
-    {# Simple loading state - Svelte will replace this #}
-    <div class="p-8 text-center">
-        <div class="text-lg">Načítavam aplikáciu...</div>
-    </div>
-</div>
+{{ svelte_component('Welcome', { greeting: "Ahoj z PHP" }, '<div>Načítavam...</div>') }}
 
-{# HTMX kontajner pre dynamický obsah #}
-<div id="partial-content"
-     hx-trigger="load"
-     hx-get="/api/latest-content"
-     hx-target="this">
-    {# HTMX sem doplní obsah #}
-</div>
 {% endblock %}
 
 

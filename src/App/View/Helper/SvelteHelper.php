@@ -32,4 +32,17 @@ class SvelteHelper
             htmlspecialchars((string) json_encode($props), ENT_QUOTES, 'UTF-8')
         );
     }
+
+    /** @param array<string, mixed> $props */
+    public function renderComponent(string $name, array $props = [], ?string $html = null): string
+    {
+        $jsonProps = htmlspecialchars(json_encode($props, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?: '{}', ENT_QUOTES);
+
+        return sprintf(
+            '<div data-component="%s" data-props="%s">%s</div>',
+            htmlspecialchars($name, ENT_QUOTES),
+            $jsonProps,
+            $html ?? ''
+        );
+    }
 }

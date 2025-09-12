@@ -18,17 +18,12 @@
   </header>
 
   <div class="app-content">
-    <main class="mx-auto max-w-6xl px-4">
+    <main class="mx-auto max-w-6xl">
       {% block content %}{% endblock %}
     </main>
   </div>
 
-  <footer class="app-footer">
-    <div class="container">
-      <hr />
-      <p>&copy; 2025 Laminas Project</p>
-    </div>
-  </footer>
+
 
   {% block scripts %}
     {{ vite_entry_script_tags('frontend/src/app.ts') }}
