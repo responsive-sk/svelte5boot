@@ -1,7 +1,7 @@
 import './styles/app.css';
 import { mount } from 'svelte';
-import Header from './lib/components/layout/Header.svelte';
-import './lib/boot/islands';
+import Header from '$components/layout/Header.svelte';
+import './core/ComponentRegistry';
 
 // Function to mount Header
 function mountHeader() {

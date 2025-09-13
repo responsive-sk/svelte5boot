@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import { Header, Footer, ArticleCard, AddToCart } from '$components';
-  import TailwindHero from '$lib/components/ui/TailwindHero.svelte';
+  // import TailwindHero from '$components/ui';
   import { cartStore, addToCart } from '$stores';
   import { userStore } from '$stores';
   import { formatPrice } from '$utils/formatters';

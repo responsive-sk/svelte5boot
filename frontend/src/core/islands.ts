@@ -61,11 +61,7 @@ document.addEventListener('htmx:configRequest', (event: any) => {
 });
 
 // Spustí sa pri načítaní DOM
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initIslands);
-} else {
-  initIslands();
-}
+document.addEventListener('DOMContentLoaded', initIslands);
 
 // Podpora pre HTMX – rehydratácia po výmene časti DOM
 document.body.addEventListener('htmx:afterSwap', initIslands);
