@@ -14,15 +14,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // New structure aliases
-      '$components': resolve('./frontend/src/components'),
-      '$pages': resolve('./frontend/src/pages'),
-      '$stores': resolve('./frontend/src/stores'),
-      '$utils': resolve('./frontend/src/utils'),
-      '$types': resolve('./frontend/src/types'),
-      
-      // Legacy lib support (will be removed)
       '$lib': resolve('./frontend/src/lib'),
+      '$components': resolve('./frontend/src/lib/components'),
+      '$stores': resolve('./frontend/src/lib/stores'),
+      '$utils': resolve('./frontend/src/lib/utils'),
+      '$pages': resolve('./frontend/src/pages'),
     },
   },
   publicDir: false,

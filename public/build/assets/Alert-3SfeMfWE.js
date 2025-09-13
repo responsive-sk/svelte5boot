@@ -1,1 +1,0 @@
-import{p as o,f as r,t as d,a as p,s as f,c as m}from"./main-6Dkdy8r5.js";var i=r('<div class="p-3 rounded border bg-yellow-100 text-yellow-800"> </div>');function c(t,a){let s=o(a,"message",8,"Hello from island");var e=i(),l=m(e);d(()=>f(l,s())),p(t,e)}export{c as default};

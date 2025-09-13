@@ -39,11 +39,11 @@ use Psr\Container\ContainerInterface;
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
     $app->get('/', App\Handler\Web\HomePageHandler::class, 'home');
-    $app->get('/api/ping', App\Handler\Web\PingHandler::class, 'api.ping');
-    $app->get('/api/component-demo', App\Handler\Web\ComponentDemoHandler::class, 'api.component-demo');
-    $app->get('/api/latest-content', App\Handler\Htmx\ContentHandler::class, 'api.latest-content');
-    $app->get('/api/partial-content', App\Handler\Htmx\ContentHandler::class, 'api.partial-content');
-    $app->get('/api/partial', App\Handler\Htmx\PartialApi::class, 'api.partial');
+    $app->get('/api/ping', App\Handler\Api\PingHandler::class, 'api.ping');
+    $app->get('/api/component-demo', App\Handler\Api\ComponentDemoHandler::class, 'api.component-demo');
+    $app->get('/fragments/latest-content', App\Handler\Htmx\ContentHandler::class, 'fragments.latest-content');
+    $app->get('/fragments/partial-content', App\Handler\Htmx\ContentHandler::class, 'fragments.partial-content');
+    $app->get('/fragments/partial', App\Handler\Htmx\PartialApi::class, 'fragments.partial');
     $app->get('/hero', App\Handler\Web\HeroHandler::class, 'hero');
     $app->get('/cool', App\Handler\Web\CoolIndexHandler::class, 'cool');
     $app->get('/test-frontend', App\Handler\Web\TestFrontendHandler::class, 'test-frontend');

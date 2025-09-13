@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AppTest\Handler;
 
-use App\Handler\Web\PingHandler;
+use App\Handler\Api\PingHandler;
 use Laminas\Diactoros\Response\JsonResponse;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;

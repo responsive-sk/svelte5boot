@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace App\Handler\Htmx;
 
-use App\Handler\AbstractHandler;
-use Mezzio\Template\TemplateRendererInterface;
+use App\Service\ResponseStrategy\ResponseStrategySelector;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-readonly final class ContentHandler extends AbstractHandler implements RequestHandlerInterface
+readonly final class ContentHandler implements RequestHandlerInterface
 {
-    public function __construct(?TemplateRendererInterface $template = null)
+    public function __construct(private ResponseStrategySelector $responseStrategySelector)
     {
-        parent::__construct($template);
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -27,6 +25,7 @@ readonly final class ContentHandler extends AbstractHandler implements RequestHa
         </div>';
 
         // Vráti len HTML fragment
-        return $this->htmxFragment($content);
+        $strategy = $this->responseStrategySelector->select($request);
+        return $strategy->render(['html' => $content]);
     }
 }

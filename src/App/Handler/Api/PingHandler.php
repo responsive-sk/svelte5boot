@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Handler\Web;
+namespace App\Handler\Api;
 
 use App\Handler\AbstractHandler;
 use Psr\Http\Message\ResponseInterface;
@@ -10,7 +10,9 @@ use Psr\Http\Message\ServerRequestInterface;
 
 use function time;
 
-final readonly class PingHandler extends AbstractHandler
+use Psr\Http\Server\RequestHandlerInterface;
+
+final readonly class PingHandler extends AbstractHandler implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {

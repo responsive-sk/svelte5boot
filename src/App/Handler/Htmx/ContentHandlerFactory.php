@@ -4,18 +4,16 @@ declare(strict_types=1);
 
 namespace App\Handler\Htmx;
 
-use Mezzio\Template\TemplateRendererInterface;
+use App\Service\ResponseStrategy\ResponseStrategySelector;
 use Psr\Container\ContainerInterface;
 
 final class ContentHandlerFactory
 {
     public function __invoke(ContainerInterface $container): ContentHandler
     {
-        $template = $container->has(TemplateRendererInterface::class)
-            ? $container->get(TemplateRendererInterface::class)
-            : null;
-        \assert($template === null || $template instanceof TemplateRendererInterface);
+        $responseStrategySelector = $container->get(ResponseStrategySelector::class);
+        \assert($responseStrategySelector instanceof ResponseStrategySelector);
 
-        return new ContentHandler($template);
+        return new ContentHandler($responseStrategySelector);
     }
 }

@@ -38,13 +38,14 @@ final class ConfigProvider
     {
         return [
             'invokables' => [
-                Handler\Web\PingHandler::class => Handler\Web\PingHandler::class,
+                // Remove PingHandler invokable registration because factory is used
             ],
             'factories'  => [
                 Handler\Web\HomePageHandler::class      => Handler\Web\HomePageHandlerFactory::class,
                 Handler\Web\ComponentDemoHandler::class => Handler\Web\ComponentDemoHandlerFactory::class,
                 Handler\Web\CoolIndexHandler::class     => Handler\Web\CoolIndexHandlerFactory::class,
                 Handler\Web\HeroHandler::class          => Handler\Web\HeroHandlerFactory::class,
+                Handler\Api\PingHandler::class          => Handler\Api\PingHandlerFactory::class,
                 Handler\Htmx\ContentHandler::class      => Handler\Htmx\ContentHandlerFactory::class,
                 Handler\Web\TestFrontendHandler::class  => Handler\Web\TestFrontendHandlerFactory::class,
             ],

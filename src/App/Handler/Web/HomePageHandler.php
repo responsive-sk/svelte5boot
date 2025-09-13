@@ -4,33 +4,24 @@ declare(strict_types=1);
 
 namespace App\Handler\Web;
 
-use App\Handler\AbstractHandler;
+use App\Service\ResponseStrategy\ResponseStrategySelector;
 use Mezzio\Router\RouterInterface;
 use Mezzio\Router\RouteResult;
-use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final readonly class HomePageHandler extends AbstractHandler implements RequestHandlerInterface
+final readonly class HomePageHandler implements RequestHandlerInterface
 {
     public function __construct(
         private string $appName,
         private RouterInterface $router,
-        ?TemplateRendererInterface $template = null,
+        private ResponseStrategySelector $responseStrategySelector,
     ) {
-        parent::__construct($template);
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        if ($this->template === null) {
-            return $this->jsonResponse([
-                'appName'  => $this->appName,
-                'greeting' => 'HTMX PSR-15',
-            ]);
-        }
-
         // Capture current route result if available for template context
         /** @var RouteResult|null $currentRoute */
         $currentRoute = $request->getAttribute(RouteResult::class);
@@ -39,6 +30,7 @@ final readonly class HomePageHandler extends AbstractHandler implements RequestH
 
         // Server-side data pre Twig
         $data = [
+            'template' => 'app::home-page',
             'title' => 'Domovska stránka',
             'content' => 'Vitajte v našej aplikácii',
             'appName' => $this->appName,
@@ -49,6 +41,7 @@ final readonly class HomePageHandler extends AbstractHandler implements RequestH
             'request' => $request,
         ];
 
-        return $this->htmlResponse('app::home-page', $data);
+        $strategy = $this->responseStrategySelector->select($request);
+        return $strategy->render($data);
     }
 }

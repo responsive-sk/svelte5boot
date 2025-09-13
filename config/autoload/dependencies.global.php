@@ -25,6 +25,7 @@ return [
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
             'server_request_factory' => ServerRequestFactory::class,
+            'App\Handler\Api\PingHandler' => App\Handler\Api\PingHandlerFactory::class,
             'App\Handler\Web\ComponentDemoHandler' => App\Handler\Web\ComponentDemoHandlerFactory::class,
             'App\Handler\Web\HeroHandler' => App\Handler\Web\HeroHandlerFactory::class,
             'App\Handler\Htmx\ContentHandler' => App\Handler\Htmx\ContentHandlerFactory::class,
@@ -33,7 +34,6 @@ return [
             'App\Handler\Web\NotFoundHandler' => App\Handler\Web\NotFoundHandlerFactory::class,
             'App\Handler\Web\HomePageHandler' => App\Handler\Web\HomePageHandlerFactory::class,
             'App\Handler\Web\CoolIndexHandler' => App\Handler\Web\CoolIndexHandlerFactory::class,
-            'App\Handler\Web\PingHandler' => App\Handler\Web\PingHandlerFactory::class,
             'App\Handler\Web\TestCsrfHandler' => App\Handler\Web\TestCsrfHandlerFactory::class,
             'App\Repository\ProductRepositoryInterface' => function ($container) {
                 return new \App\Repository\ProductRepository();
