@@ -1,14 +1,12 @@
 import '../styles/app.css';
 import { mount } from 'svelte';
 import Welcome from '$pages/Welcome.svelte';
-import CoolIndex from '$pages/CoolIndex.svelte';
 import TailwindHero from '$components/ui/TailwindHero.svelte';
 import Header from '$components/layout/Header.svelte';
 
 // Component registry for dynamic mounting
 const componentRegistry: Record<string, any> = {
   Welcome,
-  CoolIndex,
   TailwindHero,
   Header,
 };
@@ -71,12 +69,6 @@ function mountLegacyComponents() {
         searchQuery: urlParams.get('q') || ""
       }
     });
-  }
-
-  // Mount CoolIndex page
-  const coolTarget = document.getElementById('cool-app');
-  if (coolTarget) {
-    mount(CoolIndex, { target: coolTarget });
   }
 }
 

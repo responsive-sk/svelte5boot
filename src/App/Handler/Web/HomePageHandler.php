@@ -35,6 +35,8 @@ final readonly class HomePageHandler implements RequestHandlerInterface
             'content' => 'Vitajte v našej aplikácii',
             'appName' => $this->appName,
             'greeting' => 'HTMX PSR-15',
+            'subtitle' => 'Loaded via HTMX from /hero',
+            'cta'      => 'Get Started',
             'route_name' => $routeName,
             // reference router so Psalm does not flag it as unused
             'router_class' => $this->router::class,

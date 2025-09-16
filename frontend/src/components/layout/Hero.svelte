@@ -4,7 +4,7 @@
   // Hero component props (similar to Header and Footer pattern)
   export let title = 'Go Native. Stay PHP.'
   export let subtitle = 'Turn your PHP project into cross-platform, compact, fast, native applications for Windows, Linux and macOS.'
-  export let primaryButton = { text: 'Try Boson For Free', url: '/docs/latest/installation' }
+  export let primaryButton = { text: 'Try Her0 For Free', url: '/docs/latest/installation' }
   export let secondaryButton = { text: 'Download Now', url: '/download' }
 
   // Animation state

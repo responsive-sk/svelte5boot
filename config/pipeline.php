@@ -100,5 +100,4 @@ return function (Application $app, MiddlewareFactory $factory, ContainerInterfac
     // Instead, we need to configure the error handler middleware in the container config or use the default NotFoundHandler override
 
     // So, remove the above override here and rely on container config or default behavior
-
 };

@@ -1,4 +1,4 @@
-// frontend/src/lib/utils/constants.ts
+// frontend/src/utils/constants.ts
 
 export const API_BASE_URL = '/api';
 

@@ -1,4 +1,4 @@
-// frontend/src/lib/utils/api.ts
+// frontend/src/utils/api.ts
 
 function getCsrfToken(): string {
   // Placeholder for CSRF token retrieval

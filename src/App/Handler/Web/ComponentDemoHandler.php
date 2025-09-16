@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Handler\Web;
 
-use App\Handler\AbstractHandler;
+use App\Service\ResponseStrategy\ResponseStrategySelector;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

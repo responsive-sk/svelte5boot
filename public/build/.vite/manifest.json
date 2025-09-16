@@ -11,22 +11,22 @@
     "file": "assets/TailwindHero-Dh_9Z7OH.css",
     "src": "_TailwindHero-Dh_9Z7OH.css"
   },
-  "_html-CJsBHUKF.js": {
-    "file": "assets/html-CJsBHUKF.js",
+  "_html-B16kaO5n.js": {
+    "file": "assets/html-B16kaO5n.js",
     "name": "html",
     "imports": [
       "frontend/src/app.ts"
     ]
   },
-  "_svelte-head-BnOJXax3.js": {
-    "file": "assets/svelte-head-BnOJXax3.js",
+  "_svelte-head-D3ixc-TJ.js": {
+    "file": "assets/svelte-head-D3ixc-TJ.js",
     "name": "svelte-head",
     "imports": [
       "frontend/src/app.ts"
     ]
   },
   "frontend/src/app.ts": {
-    "file": "assets/main-Ods8w44J.js",
+    "file": "assets/main-BP81BtIM.js",
     "name": "main",
     "src": "frontend/src/app.ts",
     "isEntry": true,
@@ -42,7 +42,6 @@
       "frontend/src/components/ui/SearchModal.svelte",
       "frontend/src/components/ui/TailwindHero.svelte",
       "frontend/src/components/layout/Hero.svelte",
-      "frontend/src/components/layout/TailwindHero.svelte",
       "frontend/src/pages/App.svelte",
       "frontend/src/pages/CoolIndex.svelte",
       "frontend/src/pages/Welcome.svelte"
@@ -52,7 +51,7 @@
     ]
   },
   "frontend/src/components/islands/AddToCart.svelte": {
-    "file": "assets/AddToCart-CRuoMEVG.js",
+    "file": "assets/AddToCart-BHH9NM6A.js",
     "name": "AddToCart",
     "src": "frontend/src/components/islands/AddToCart.svelte",
     "isDynamicEntry": true,
@@ -61,7 +60,7 @@
     ]
   },
   "frontend/src/components/islands/Alert.svelte": {
-    "file": "assets/Alert-BJ0vuEJB.js",
+    "file": "assets/Alert-D30SOqYd.js",
     "name": "Alert",
     "src": "frontend/src/components/islands/Alert.svelte",
     "isDynamicEntry": true,
@@ -70,7 +69,7 @@
     ]
   },
   "frontend/src/components/layout/Hero.svelte": {
-    "file": "assets/Hero-B1dYda7R.js",
+    "file": "assets/Hero-RRGAqB00.js",
     "name": "Hero",
     "src": "frontend/src/components/layout/Hero.svelte",
     "isDynamicEntry": true,
@@ -81,20 +80,8 @@
       "assets/Hero-Dl9r9qEC.css"
     ]
   },
-  "frontend/src/components/layout/TailwindHero.svelte": {
-    "file": "assets/TailwindHero-Bma-wvNe.js",
-    "name": "TailwindHero",
-    "src": "frontend/src/components/layout/TailwindHero.svelte",
-    "isDynamicEntry": true,
-    "imports": [
-      "frontend/src/app.ts"
-    ],
-    "css": [
-      "assets/TailwindHero-CFz9bTlw.css"
-    ]
-  },
   "frontend/src/components/ui/ArticleCard.svelte": {
-    "file": "assets/ArticleCard-DY3souXS.js",
+    "file": "assets/ArticleCard-CAoZr1QD.js",
     "name": "ArticleCard",
     "src": "frontend/src/components/ui/ArticleCard.svelte",
     "isDynamicEntry": true,
@@ -106,20 +93,20 @@
     ]
   },
   "frontend/src/components/ui/ArticleDetail.svelte": {
-    "file": "assets/ArticleDetail-CgTpKCf-.js",
+    "file": "assets/ArticleDetail-BZwAypCc.js",
     "name": "ArticleDetail",
     "src": "frontend/src/components/ui/ArticleDetail.svelte",
     "isDynamicEntry": true,
     "imports": [
       "frontend/src/app.ts",
-      "_html-CJsBHUKF.js"
+      "_html-B16kaO5n.js"
     ],
     "css": [
       "assets/ArticleDetail-Bzy2FAdt.css"
     ]
   },
   "frontend/src/components/ui/Footer.svelte": {
-    "file": "assets/Footer-DnR7Im8-.js",
+    "file": "assets/Footer-DzFi6Csm.js",
     "name": "Footer",
     "src": "frontend/src/components/ui/Footer.svelte",
     "isDynamicEntry": true,
@@ -131,7 +118,7 @@
     ]
   },
   "frontend/src/components/ui/Header.svelte": {
-    "file": "assets/Header-CEYPMPh9.js",
+    "file": "assets/Header-rjEyOWs4.js",
     "name": "Header",
     "src": "frontend/src/components/ui/Header.svelte",
     "isDynamicEntry": true,
@@ -143,7 +130,7 @@
     ]
   },
   "frontend/src/components/ui/Hero.svelte": {
-    "file": "assets/Hero-DeI7byzF.js",
+    "file": "assets/Hero-D_KJcSPQ.js",
     "name": "Hero",
     "src": "frontend/src/components/ui/Hero.svelte",
     "isDynamicEntry": true,
@@ -152,7 +139,7 @@
     ]
   },
   "frontend/src/components/ui/Nav.svelte": {
-    "file": "assets/Nav-COjjqAvy.js",
+    "file": "assets/Nav-epDVZPrW.js",
     "name": "Nav",
     "src": "frontend/src/components/ui/Nav.svelte",
     "isDynamicEntry": true,
@@ -161,20 +148,20 @@
     ]
   },
   "frontend/src/components/ui/SearchModal.svelte": {
-    "file": "assets/SearchModal-Bid0sAxH.js",
+    "file": "assets/SearchModal-MiiY3-Sg.js",
     "name": "SearchModal",
     "src": "frontend/src/components/ui/SearchModal.svelte",
     "isDynamicEntry": true,
     "imports": [
       "frontend/src/app.ts",
-      "_html-CJsBHUKF.js"
+      "_html-B16kaO5n.js"
     ],
     "css": [
       "assets/SearchModal-DNM2mDpx.css"
     ]
   },
   "frontend/src/components/ui/TailwindHero.svelte": {
-    "file": "assets/TailwindHero-CDmxYLGp.js",
+    "file": "assets/TailwindHero-DHtCinP-.js",
     "name": "TailwindHero",
     "src": "frontend/src/components/ui/TailwindHero.svelte",
     "isDynamicEntry": true,
@@ -186,7 +173,7 @@
     ]
   },
   "frontend/src/pages/App.svelte": {
-    "file": "assets/App-BkD8D8wR.js",
+    "file": "assets/App-Btv_WNAi.js",
     "name": "App",
     "src": "frontend/src/pages/App.svelte",
     "isDynamicEntry": true,
@@ -203,23 +190,23 @@
     ]
   },
   "frontend/src/pages/CoolIndex.svelte": {
-    "file": "assets/CoolIndex-CqGtmiiF.js",
+    "file": "assets/CoolIndex-DjwZxjAR.js",
     "name": "CoolIndex",
     "src": "frontend/src/pages/CoolIndex.svelte",
     "isDynamicEntry": true,
     "imports": [
       "frontend/src/app.ts",
-      "_svelte-head-BnOJXax3.js"
+      "_svelte-head-D3ixc-TJ.js"
     ]
   },
   "frontend/src/pages/Welcome.svelte": {
-    "file": "assets/Welcome-BEkRa_OF.js",
+    "file": "assets/Welcome-CPJBfxgL.js",
     "name": "Welcome",
     "src": "frontend/src/pages/Welcome.svelte",
     "isDynamicEntry": true,
     "imports": [
       "frontend/src/app.ts",
-      "_svelte-head-BnOJXax3.js"
+      "_svelte-head-D3ixc-TJ.js"
     ]
   }
 }
